@@ -12,7 +12,7 @@ export default function PopularCourses() {
     useEffect(() => {
         const fetchPreSellCourses = async () => {
             try {
-                const response = await fetch('https://edu-web-client.vercel.app/v1/courses/presell');
+                const response = await fetch('https://web-api-silk-three.vercel.app/v1/courses/presell');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

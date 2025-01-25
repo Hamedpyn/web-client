@@ -16,7 +16,7 @@ export default function UserAccount() {
     useEffect(() => {
         const localStorageData = JSON.parse(localStorage.getItem('user'));
         if (localStorageData) {
-            fetch('https://edu-web-client.vercel.app/v1/auth/me', {
+            fetch('https://web-api-silk-three.vercel.app/v1/auth/me', {
                 headers: {
                     Authorization: `Bearer ${localStorageData.token}`,
                 }

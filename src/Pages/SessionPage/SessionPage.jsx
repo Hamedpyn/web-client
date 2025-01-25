@@ -16,7 +16,7 @@ export default function SessionPage() {
     const { id, session } = useParams()
     const data = JSON.parse(localStorage.getItem("user"))
     useEffect(() => {
-        fetch(`https://edu-web-client.vercel.app/v1/courses/${id}/${session}`, {
+        fetch(`https://web-api-silk-three.vercel.app/v1/courses/${id}/${session}`, {
             headers: {
                 Authorization: `Bearer ${data === null ? null : data.token}`
             }
@@ -44,7 +44,7 @@ export default function SessionPage() {
                             <video
                                 className="rounded-2xl w-full"
                                 controls
-                                src={`https://edu-web-client.vercel.app/courses/covers/${allSessions?.session?.video}`}
+                                src={`https://web-api-silk-three.vercel.app/courses/covers/${allSessions?.session?.video}`}
                             />
                         </div>
                         <div className="lg:flex gap-5">

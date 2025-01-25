@@ -75,7 +75,7 @@ export default function DataTable({ newUsers, disCounts, tickets, getAllComments
                                     <Table.Cell className="!rounded-none dana-medium">{item.price ? item.price.toLocaleString() : "رایگان"}</Table.Cell>
                                     <Table.Cell className="!rounded-none dana-medium">{item.name}</Table.Cell>
                                     <Table.Cell className="w-[150px]">
-                                        <img className="max-w-[100px] w-[100px] rounded h-[50px]" src={`https://edu-web-client.vercel.app/courses/covers/${item.cover}`} alt="image" />
+                                        <img className="max-w-[100px] w-[100px] rounded h-[50px]" src={`https://web-api-silk-three.vercel.app/courses/covers/${item.cover}`} alt="image" />
                                     </Table.Cell>
 
                                 </Table.Row>
@@ -93,7 +93,7 @@ export default function DataTable({ newUsers, disCounts, tickets, getAllComments
                                             <Table.Cell className="w-[150px]">
                                                 <img
                                                     className="max-w-[100px] object-contain w-[100px] rounded h-[50px]"
-                                                    src={`https://edu-web-client.vercel.app/courses/covers/${item.cover}`}
+                                                    src={`https://web-api-silk-three.vercel.app/courses/covers/${item.cover}`}
                                                     alt="image"
                                                 />
                                             </Table.Cell>

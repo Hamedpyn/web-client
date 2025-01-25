@@ -17,7 +17,7 @@ export default function Search() {
     const [searchedArticles, setSearchedArticles] = useState([]);
 
     useEffect(() => {
-        fetch(`https://edu-web-client.vercel.app/v1/search/${search}`)
+        fetch(`https://web-api-silk-three.vercel.app/v1/search/${search}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Search detecting failed');

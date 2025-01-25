@@ -22,7 +22,7 @@ export default function ArticlesPage() {
 
 
     useEffect(() => {
-        fetch(`https://edu-web-client.vercel.app/v1/articles/${blog}`)
+        fetch(`https://web-api-silk-three.vercel.app/v1/articles/${blog}`)
             .then(res => res.json())
             .then(articles => {
                 if (articles) {
@@ -76,7 +76,7 @@ export default function ArticlesPage() {
 
                                 </div>
                                 <div className="rounded-2xl overflow-hidden mb-6">
-                                    <img className="w-full" src={`https://edu-web-client.vercel.app/courses/covers/${articlesDetails.cover}`} alt="Articles Image" />
+                                    <img className="w-full" src={`https://web-api-silk-three.vercel.app/courses/covers/${articlesDetails.cover}`} alt="Articles Image" />
                                 </div>
                                 <div>
                                     <div className="dana-regular article" dangerouslySetInnerHTML={{ __html: articlesDetails.body }} />

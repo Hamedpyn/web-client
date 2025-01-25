@@ -35,7 +35,7 @@ export default function Login({ setState }) {
 		};
 
 		try {
-			const response = await fetch('https://edu-web-client.vercel.app/v1/auth/login', {
+			const response = await fetch('https://web-api-silk-three.vercel.app/v1/auth/login', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

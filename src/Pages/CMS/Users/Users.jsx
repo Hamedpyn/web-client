@@ -52,7 +52,7 @@ export default function Users() {
 
   const getAllUsers = useCallback(
     (() => {
-      fetch("https://edu-web-client.vercel.app/v1/users", {
+      fetch("https://web-api-silk-three.vercel.app/v1/users", {
         headers: {
           Authorization: `Bearer ${localStorageData.token}`
         }
@@ -74,7 +74,7 @@ export default function Users() {
 
   const removeMustHappen = () => {
     setOpenModal(false);
-    fetch(`https://edu-web-client.vercel.app/v1/users/${userId}`, {
+    fetch(`https://web-api-silk-three.vercel.app/v1/users/${userId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`,
@@ -89,7 +89,7 @@ export default function Users() {
 
   const banMustHappen = () => {
     setOpenModal(false);
-    fetch(`https://edu-web-client.vercel.app/v1/users/ban/${userId}`, {
+    fetch(`https://web-api-silk-three.vercel.app/v1/users/ban/${userId}`, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`,
@@ -120,7 +120,7 @@ export default function Users() {
     };
 
     try {
-      await fetch('https://edu-web-client.vercel.app/v1/auth/register', {
+      await fetch('https://web-api-silk-three.vercel.app/v1/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -150,7 +150,7 @@ export default function Users() {
   };
 
   const changeRoll = () => {
-    fetch('https://edu-web-client.vercel.app/v1/users/role', {
+    fetch('https://web-api-silk-three.vercel.app/v1/users/role', {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`,

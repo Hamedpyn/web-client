@@ -11,7 +11,7 @@ export default memo(function CourseBox(props) {
       <div className="flex flex-col sm:h-[400px] bg-white dark:bg-[#242A38] border-none overflow-hidden rounded-2xl z-0">
         <div className="h-[182px] relative overflow-hidden">
           <Link to={`/course/${props.shortName}/`}>
-            <img className='w-full h-44 object-cover rounded-2xl' src={`https://edu-web-client.vercel.app/courses/covers/${props.cover}`} alt="course image" />
+            <img className='w-full h-44 object-cover rounded-2xl' src={`https://web-api-silk-three.vercel.app/courses/covers/${props.cover}`} alt="course image" />
           </Link>
         </div>
         <div className="flex-grow px-5 pb-5 mt-2">

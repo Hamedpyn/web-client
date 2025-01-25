@@ -18,7 +18,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch('https://edu-web-client.vercel.app/v1/courses', {
+    fetch('https://web-api-silk-three.vercel.app/v1/courses', {
       method: "GET",
       credentials: 'include'
     })
@@ -44,7 +44,7 @@ function App() {
     const fetchUserData = async () => {
       if (token) {
         try {
-          const res = await fetch('https://edu-web-client.vercel.app/v1/auth/me', {
+          const res = await fetch('https://web-api-silk-three.vercel.app/v1/auth/me', {
             headers: {
               Authorization: `Bearer ${token}`,
             },

@@ -10,7 +10,7 @@ export default function TicketsAnswer() {
     let { id } = useParams();
 
     useEffect(() => {
-        fetch(`https://edu-web-client.vercel.app/v1/tickets/answer/${id}`, {
+        fetch(`https://web-api-silk-three.vercel.app/v1/tickets/answer/${id}`, {
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             }

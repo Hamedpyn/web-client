@@ -42,7 +42,7 @@ export default function EditAccount() {
         let newDetails = {
             name, username: userName, email, phone: phoneNumber, password
         }
-        fetch(`https://edu-web-client.vercel.app/v1/users`, {
+        fetch(`https://web-api-silk-three.vercel.app/v1/users`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

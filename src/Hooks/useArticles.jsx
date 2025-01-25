@@ -4,7 +4,7 @@ function useArticles() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    fetch('https://edu-web-client.vercel.app/v1/articles', {
+    fetch('https://web-api-silk-three.vercel.app/v1/articles', {
       credentials: 'include'
     })
       .then((res) => {

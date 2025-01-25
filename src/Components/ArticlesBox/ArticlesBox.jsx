@@ -10,7 +10,7 @@ export default memo(function ArticlesBox(props) {
 
     <div className="flex flex-col bg-white dark:bg-[#242A38] border-none overflow-hidden rounded-2xl">
       <div className=" relative h-[182px] overflow-hidden">
-        <img className="block w-full h-full object-cover" src={`https://edu-web-client.vercel.app/courses/covers/${props.cover}`} alt="image" />
+        <img className="block w-full h-full object-cover" src={`https://web-api-silk-three.vercel.app/courses/covers/${props.cover}`} alt="image" />
       </div>
       <div className="flex-grow px-5 py-3">
         <h3 className="dana-demi dark:text-white text-gray-900 line-clamp-2 mb-3">

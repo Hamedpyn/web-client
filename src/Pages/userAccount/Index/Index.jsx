@@ -12,7 +12,7 @@ export default function UserIndex() {
     const [shownTickets, setShownTickets] = useState([])
     const localStorageData = JSON.parse(localStorage.getItem("user"));
     useEffect(() => {
-        fetch("https://edu-web-client.vercel.app/v1/tickets/user", {
+        fetch("https://web-api-silk-three.vercel.app/v1/tickets/user", {
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             }
