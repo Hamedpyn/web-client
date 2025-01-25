@@ -30,7 +30,7 @@ export default function EditModal({ getAllComments, id, touched, bodyValue, setB
         setTouched(false)
         setBodyValue('')
         if (tickets) {
-            fetch(`https://educational-web-site.vercel.app/v1/tickets/answer/`, {
+            fetch(`https://edu-web-client.vercel.app/v1/tickets/answer/`, {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem("user")).token}`,
@@ -48,7 +48,7 @@ export default function EditModal({ getAllComments, id, touched, bodyValue, setB
             })
         } else {
 
-            fetch(`https://educational-web-site.vercel.app/v1/comments/answer/${id}`, {
+            fetch(`https://edu-web-client.vercel.app/v1/comments/answer/${id}`, {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem("user")).token}`,

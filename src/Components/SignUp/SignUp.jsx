@@ -51,7 +51,7 @@ export default function SignUp({ setState }) {
         };
 
         try {
-            await fetch('https://educational-web-site.vercel.app/v1/auth/register', {
+            await fetch('https://edu-web-client.vercel.app/v1/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -35,7 +35,7 @@ export default function Categories() {
 
   const getAllCats = useCallback(
     (() => {
-      fetch('https://educational-web-site.vercel.app/v1/category')
+      fetch('https://edu-web-client.vercel.app/v1/category')
         .then(res => res.json())
         .then(result => setCategories(result))
     }), [])
@@ -51,7 +51,7 @@ export default function Categories() {
       name: shortname.value,
       title: title.value
     }
-    fetch('https://educational-web-site.vercel.app/v1/category', {
+    fetch('https://edu-web-client.vercel.app/v1/category', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +70,7 @@ export default function Categories() {
       })
   };
   const removeCategory = () => {
-    fetch(`https://educational-web-site.vercel.app/v1/category/${categoryId}`, {
+    fetch(`https://edu-web-client.vercel.app/v1/category/${categoryId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +101,7 @@ export default function Categories() {
   const editCategory = () => {
     console.log(categoryId);
 
-    fetch(`https://educational-web-site.vercel.app/v1/category/${categoryId}`, {
+    fetch(`https://edu-web-client.vercel.app/v1/category/${categoryId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

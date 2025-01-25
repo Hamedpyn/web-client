@@ -10,7 +10,7 @@ export default function TransActions() {
     const [filteredOrders, setFilteredOrders] = useState([]);
     let localStorageData = JSON.parse(localStorage.getItem('user'))
     useEffect(() => {
-        fetch('https://educational-web-site.vercel.app/v1/orders', {
+        fetch('https://edu-web-client.vercel.app/v1/orders', {
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             }

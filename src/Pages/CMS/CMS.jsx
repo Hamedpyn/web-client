@@ -23,7 +23,7 @@ export default function CMS() {
     useEffect(() => {
         const localStorageData = JSON.parse(localStorage.getItem('user'));
         if (localStorageData) {
-            fetch('https://educational-web-site.vercel.app/v1/auth/me', {
+            fetch('https://edu-web-client.vercel.app/v1/auth/me', {
                 headers: {
                     Authorization: `Bearer ${localStorageData.token}`,
                 }

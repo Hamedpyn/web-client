@@ -57,13 +57,13 @@ export default function Sessions() {
   ]
 
   const getAllSessions = () => {
-    fetch("https://educational-web-site.vercel.app/v1/courses/sessions")
+    fetch("https://edu-web-client.vercel.app/v1/courses/sessions")
       .then(res => res.json())
       .then(setSessions)
   };
 
   useEffect(() => {
-    fetch("https://educational-web-site.vercel.app/v1/courses")
+    fetch("https://edu-web-client.vercel.app/v1/courses")
       .then(res => res.json())
       .then(result => {
         setCourses(result)
@@ -88,7 +88,7 @@ export default function Sessions() {
     formData.append('video', cover)
     formData.append('free', free)
 
-    fetch(`https://educational-web-site.vercel.app/v1/courses/${chosenCourse}/sessions`, {
+    fetch(`https://edu-web-client.vercel.app/v1/courses/${chosenCourse}/sessions`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
@@ -111,7 +111,7 @@ export default function Sessions() {
     setOpenModal(true)
   };
   const removeCourses = () => {
-    fetch(`https://educational-web-site.vercel.app/v1/courses/sessions/${sessionId}`, {
+    fetch(`https://edu-web-client.vercel.app/v1/courses/sessions/${sessionId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`

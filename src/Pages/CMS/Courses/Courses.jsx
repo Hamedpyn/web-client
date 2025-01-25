@@ -57,13 +57,13 @@ export default function Courses() {
   ]
 
   const getAllCourses = () => {
-    fetch('https://educational-web-site.vercel.app/v1/courses')
+    fetch('https://edu-web-client.vercel.app/v1/courses')
       .then(res => res.json())
       .then(result => setCourses(result))
   };
 
   useEffect(() => {
-    fetch('https://educational-web-site.vercel.app/v1/category')
+    fetch('https://edu-web-client.vercel.app/v1/category')
       .then(res => res.json())
       .then(result => {
         setCategories(result)
@@ -77,7 +77,7 @@ export default function Courses() {
     setOpenModal(true)
   };
   const removeCourses = () => {
-    fetch(`https://educational-web-site.vercel.app/v1/courses/${coursesId}`, {
+    fetch(`https://edu-web-client.vercel.app/v1/courses/${coursesId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
@@ -109,7 +109,7 @@ export default function Courses() {
     formData.append('status', selected)
     formData.append('cover', cover)
 
-    fetch(`https://educational-web-site.vercel.app/v1/courses`, {
+    fetch(`https://edu-web-client.vercel.app/v1/courses`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`

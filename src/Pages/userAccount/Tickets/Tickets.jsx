@@ -12,7 +12,7 @@ export default function Tickets() {
   const localStorageData = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    fetch("https://educational-web-site.vercel.app/v1/tickets/user", {
+    fetch("https://edu-web-client.vercel.app/v1/tickets/user", {
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
       }

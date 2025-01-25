@@ -18,8 +18,8 @@ function App() {
   });
 
   useEffect(() => {
-    fetch('https://edu-web-client.vercel.app/v1/courses',{
-      method:"GET",
+    fetch('https://edu-web-client.vercel.app/v1/courses', {
+      method: "GET",
       credentials: 'include'
     })
       .then(res => res.json())
@@ -44,7 +44,7 @@ function App() {
     const fetchUserData = async () => {
       if (token) {
         try {
-          const res = await fetch('https://educational-web-site.vercel.app/v1/auth/me', {
+          const res = await fetch('https://edu-web-client.vercel.app/v1/auth/me', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -150,14 +150,14 @@ function App() {
     >
       <ScrollToTop />
       <Suspense fallback={
-          <div className="flex items-center justify-center h-screen bg-[#242A38]">
-            <CircleSpinner />
-          </div>
-        } >
-      <div className="flex flex-col items-center bg-[#F3F4F6] dark:bg-[#111827]">
-        {router}
-      </div>
-        </Suspense>
+        <div className="flex items-center justify-center h-screen bg-[#242A38]">
+          <CircleSpinner />
+        </div>
+      } >
+        <div className="flex flex-col items-center bg-[#F3F4F6] dark:bg-[#111827]">
+          {router}
+        </div>
+      </Suspense>
     </SabzLearnContext.Provider>
   )
 }

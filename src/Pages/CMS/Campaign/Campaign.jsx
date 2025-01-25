@@ -20,7 +20,7 @@ export default function Campaign() {
     const setCampaign = (e) => {
         e.preventDefault();
 
-        fetch('https://educational-web-site.vercel.app/v1/offs/all', {
+        fetch('https://edu-web-client.vercel.app/v1/offs/all', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export default function Campaign() {
     const removeCampaign = (e) => {
         e.preventDefault();
 
-        fetch('https://educational-web-site.vercel.app/v1/offs/all', {
+        fetch('https://edu-web-client.vercel.app/v1/offs/all', {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

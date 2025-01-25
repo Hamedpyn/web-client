@@ -20,7 +20,7 @@ export default function AddTicket() {
     const [departmentID, setDepartmentID] = useState("");
 
     useEffect(() => {
-        fetch(`https://educational-web-site.vercel.app/v1/tickets/departments`, {
+        fetch(`https://edu-web-client.vercel.app/v1/tickets/departments`, {
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             },
@@ -37,7 +37,7 @@ export default function AddTicket() {
             priority: 1, body: bodyValue, course: undefined
         }
 
-        fetch(`https://educational-web-site.vercel.app/v1/tickets`, {
+        fetch(`https://edu-web-client.vercel.app/v1/tickets`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

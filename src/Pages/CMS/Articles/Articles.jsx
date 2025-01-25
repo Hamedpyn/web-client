@@ -46,13 +46,13 @@ export default function Articles() {
     { title: 'نویسنده', id: 3 },
   ]
   const getAllArticles = useCallback(() => {
-    fetch('https://educational-web-site.vercel.app/v1/articles')
+    fetch('https://edu-web-client.vercel.app/v1/articles')
       .then(res => res.json())
       .then(result => setArticles(result))
   }, [])
 
   useEffect(() => {
-    fetch('https://educational-web-site.vercel.app/v1/category')
+    fetch('https://edu-web-client.vercel.app/v1/category')
       .then(res => res.json())
       .then(result => {
         setCategories(result)
@@ -67,7 +67,7 @@ export default function Articles() {
   };
 
   const removeArticle = () => {
-    fetch(`https://educational-web-site.vercel.app/v1/articles/${articleId}`, {
+    fetch(`https://edu-web-client.vercel.app/v1/articles/${articleId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
@@ -113,7 +113,7 @@ export default function Articles() {
     formData.append('categoryID', selectBox)
     formData.append('cover', cover)
 
-    fetch(`https://educational-web-site.vercel.app/v1/articles`, {
+    fetch(`https://edu-web-client.vercel.app/v1/articles`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
