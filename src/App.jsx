@@ -18,7 +18,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch('https://educational-web-site.vercel.app/v1/courses',{
+    fetch('https://edu-web-client.vercel.app/v1/courses',{
       method:"GET",
       credentials: 'include'
     })
