@@ -11,6 +11,7 @@ export default function TransActions() {
     let localStorageData = JSON.parse(localStorage.getItem('user'))
     useEffect(() => {
         fetch('https://web-api-silk-three.vercel.app/v1/orders', {
+            credentials: 'include',
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             }

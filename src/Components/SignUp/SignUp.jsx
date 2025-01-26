@@ -53,6 +53,7 @@ export default function SignUp({ setState }) {
         try {
             await fetch('https://web-api-silk-three.vercel.app/v1/auth/register', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                 },

@@ -11,6 +11,7 @@ export default function TicketsAnswer() {
 
     useEffect(() => {
         fetch(`https://web-api-silk-three.vercel.app/v1/tickets/answer/${id}`, {
+            credentials: 'include',
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             }

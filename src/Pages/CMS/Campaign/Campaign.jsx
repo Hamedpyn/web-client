@@ -22,6 +22,7 @@ export default function Campaign() {
 
         fetch('https://web-api-silk-three.vercel.app/v1/offs/all', {
             method: "POST",
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorageData.token}`
@@ -42,6 +43,7 @@ export default function Campaign() {
 
         fetch('https://web-api-silk-three.vercel.app/v1/offs/all', {
             method: "DELETE",
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorageData.token}`

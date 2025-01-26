@@ -27,7 +27,9 @@ export default function Comments() {
     const [FilteredComments, setFilteredComments] = useState([])
 
     const getAllComments = useCallback(() => {
-        fetch('https://web-api-silk-three.vercel.app/v1/comments')
+        fetch('https://web-api-silk-three.vercel.app/v1/comments',{
+            credentials: 'include',
+        })
             .then(res => res.json())
             .then(setComments)
     }, [])
@@ -43,6 +45,7 @@ export default function Comments() {
     const removeComment = () => {
         fetch(`https://web-api-silk-three.vercel.app/v1/comments/${commentID}`, {
             method: 'DELETE',
+            credentials: 'include',
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             },
@@ -64,6 +67,7 @@ export default function Comments() {
     const BanUser = () => {
         fetch(`https://web-api-silk-three.vercel.app/v1/users/ban/${userID}`, {
             method: 'PUT',
+            credentials: 'include',
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             },
@@ -88,6 +92,7 @@ export default function Comments() {
     const acceptComment = () => {
         fetch(`https://web-api-silk-three.vercel.app/v1/comments/accept/${commentID}`, {
             method: 'PUT',
+            credentials: 'include',
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             },
@@ -105,6 +110,7 @@ export default function Comments() {
     const rejectComment = () => {
         fetch(`https://web-api-silk-three.vercel.app/v1/comments/reject/${commentID}`, {
             method: 'PUT',
+            credentials: 'include',
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             },

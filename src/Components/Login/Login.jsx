@@ -37,6 +37,7 @@ export default function Login({ setState }) {
 		try {
 			const response = await fetch('https://web-api-silk-three.vercel.app/v1/auth/login', {
 				method: 'POST',
+				credentials: 'include',
 				headers: {
 					'Content-Type': 'application/json',
 				},

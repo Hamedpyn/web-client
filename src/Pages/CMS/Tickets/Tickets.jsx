@@ -19,6 +19,7 @@ export default function Tickets() {
     let localStorageData = JSON.parse(localStorage.getItem('user'))
     const getAllTickets = useCallback(() => {
         fetch('https://web-api-silk-three.vercel.app/v1/tickets', {
+            credentials: 'include',
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             }

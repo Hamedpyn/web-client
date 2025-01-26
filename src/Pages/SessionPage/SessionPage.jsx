@@ -17,9 +17,11 @@ export default function SessionPage() {
     const data = JSON.parse(localStorage.getItem("user"))
     useEffect(() => {
         fetch(`https://web-api-silk-three.vercel.app/v1/courses/${id}/${session}`, {
+            credentials: 'include',
             headers: {
                 Authorization: `Bearer ${data === null ? null : data.token}`
             }
+            
         }).then(res => res.json()).then(result => {
             setSession(result)
             if (result) {

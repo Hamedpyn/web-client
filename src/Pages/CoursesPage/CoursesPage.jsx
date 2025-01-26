@@ -43,6 +43,7 @@ export default function CoursesPage() {
     const getOneCourse = useCallback(() => {
         fetch(`https://web-api-silk-three.vercel.app/v1/courses/${id}`, {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Authorization': `Bearer ${localStorageData === null ? null : localStorageData.token}`
             }
@@ -61,7 +62,9 @@ export default function CoursesPage() {
 
     }, [getOneCourse])
     useEffect(() => {
-        fetch(`https://web-api-silk-three.vercel.app/v1/courses/related/${id}`)
+        fetch(`https://web-api-silk-three.vercel.app/v1/courses/related/${id}`,{
+            credentials: 'include',
+        })
             .then(res => res.json())
             .then(result => {
                 setRelatedCourses(result);
@@ -75,6 +78,7 @@ export default function CoursesPage() {
 
         await fetch(`https://web-api-silk-three.vercel.app/v1/comments`, {
             method: "POST",
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorageData.token}`
@@ -98,6 +102,7 @@ export default function CoursesPage() {
         if (oneCourse.price == 0) {
             fetch(`https://web-api-silk-three.vercel.app/v1/courses/${oneCourse?._id}/register`, {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${localStorageData.token}`
@@ -120,6 +125,7 @@ export default function CoursesPage() {
         if (confirm) {
             fetch(`https://web-api-silk-three.vercel.app/v1/offs/${off}`, {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${localStorageData.token}`
@@ -137,6 +143,7 @@ export default function CoursesPage() {
             }).then(result => {
                 fetch(`https://web-api-silk-three.vercel.app/v1/courses/${oneCourse?._id}/register`, {
                     method: 'POST',
+                    credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${localStorageData.token}`
@@ -159,6 +166,7 @@ export default function CoursesPage() {
         if (noOff) {
             fetch(`https://web-api-silk-three.vercel.app/v1/courses/${oneCourse?._id}/register`, {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${localStorageData.token}`

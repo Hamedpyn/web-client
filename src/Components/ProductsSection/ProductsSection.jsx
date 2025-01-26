@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react"
-import sabzLeSabzLearnContextarnContext from "../../Contexts/SabzlearnContext"
+import SabzLearnContext from "../../Contexts/SabzlearnContext"
 import { useParams } from "react-router-dom"
 import SectionsTitle from "../../Components/SectionsTitle/SectionsTitle"
 import { IoSearchOutline } from "react-icons/io5"

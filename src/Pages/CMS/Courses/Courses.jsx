@@ -57,13 +57,17 @@ export default function Courses() {
   ]
 
   const getAllCourses = () => {
-    fetch('https://web-api-silk-three.vercel.app/v1/courses')
+    fetch('https://web-api-silk-three.vercel.app/v1/courses',{
+      credentials: 'include',
+    })
       .then(res => res.json())
       .then(result => setCourses(result))
   };
 
   useEffect(() => {
-    fetch('https://web-api-silk-three.vercel.app/v1/category')
+    fetch('https://web-api-silk-three.vercel.app/v1/category',{
+      credentials: 'include',
+    })
       .then(res => res.json())
       .then(result => {
         setCategories(result)
@@ -79,6 +83,7 @@ export default function Courses() {
   const removeCourses = () => {
     fetch(`https://web-api-silk-three.vercel.app/v1/courses/${coursesId}`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
       }
@@ -111,6 +116,7 @@ export default function Courses() {
 
     fetch(`https://web-api-silk-three.vercel.app/v1/courses`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
       },

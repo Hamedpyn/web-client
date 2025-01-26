@@ -27,6 +27,7 @@ export default function Index() {
 
   useEffect(() => {
     fetch('https://web-api-silk-three.vercel.app/v1/infos/p-admin', {
+      credentials: 'include',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
       }

@@ -47,6 +47,7 @@ export default function DisCounts() {
   const getAllDisCounts = useCallback(
     () => {
       fetch('https://web-api-silk-three.vercel.app/v1/offs', {
+        credentials: 'include',
         headers: {
           Authorization: `Bearer ${localStorageData.token}`
         },
@@ -58,7 +59,9 @@ export default function DisCounts() {
 
 
   useEffect(() => {
-    fetch('https://web-api-silk-three.vercel.app/v1/courses')
+    fetch('https://web-api-silk-three.vercel.app/v1/courses',{
+      credentials: 'include',
+    })
       .then(res => res.json())
       .then(result => {
         setCourses(result)
@@ -90,6 +93,7 @@ export default function DisCounts() {
 
     fetch("https://web-api-silk-three.vercel.app/v1/offs", {
       method: 'POST',
+      credentials: 'include',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`,
         "Content-Type": "application/json"
@@ -114,6 +118,7 @@ export default function DisCounts() {
   const removeDisCount = () => {
     fetch(`https://web-api-silk-three.vercel.app/v1/offs/${disCountID}`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`,
       },

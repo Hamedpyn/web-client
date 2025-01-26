@@ -17,6 +17,7 @@ export default function UserAccount() {
         const localStorageData = JSON.parse(localStorage.getItem('user'));
         if (localStorageData) {
             fetch('https://web-api-silk-three.vercel.app/v1/auth/me', {
+                credentials: 'include',
                 headers: {
                     Authorization: `Bearer ${localStorageData.token}`,
                 }

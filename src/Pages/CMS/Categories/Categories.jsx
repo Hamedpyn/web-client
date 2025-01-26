@@ -35,7 +35,9 @@ export default function Categories() {
 
   const getAllCats = useCallback(
     (() => {
-      fetch('https://web-api-silk-three.vercel.app/v1/category')
+      fetch('https://web-api-silk-three.vercel.app/v1/category',{
+        credentials: 'include',
+      })
         .then(res => res.json())
         .then(result => setCategories(result))
     }), [])
@@ -53,6 +55,7 @@ export default function Categories() {
     }
     fetch('https://web-api-silk-three.vercel.app/v1/category', {
       method: "POST",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorageData.token}`
@@ -72,6 +75,7 @@ export default function Categories() {
   const removeCategory = () => {
     fetch(`https://web-api-silk-three.vercel.app/v1/category/${categoryId}`, {
       method: "DELETE",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorageData.token}`
@@ -103,6 +107,7 @@ export default function Categories() {
 
     fetch(`https://web-api-silk-three.vercel.app/v1/category/${categoryId}`, {
       method: "PUT",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorageData.token}`

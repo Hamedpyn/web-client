@@ -46,13 +46,17 @@ export default function Articles() {
     { title: 'نویسنده', id: 3 },
   ]
   const getAllArticles = useCallback(() => {
-    fetch('https://web-api-silk-three.vercel.app/v1/articles')
+    fetch('https://web-api-silk-three.vercel.app/v1/articles',{
+      credentials: 'include',
+    })
       .then(res => res.json())
       .then(result => setArticles(result))
   }, [])
 
   useEffect(() => {
-    fetch('https://web-api-silk-three.vercel.app/v1/category')
+    fetch('https://web-api-silk-three.vercel.app/v1/category',{
+      credentials: 'include',
+    })
       .then(res => res.json())
       .then(result => {
         setCategories(result)
@@ -69,6 +73,7 @@ export default function Articles() {
   const removeArticle = () => {
     fetch(`https://web-api-silk-three.vercel.app/v1/articles/${articleId}`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
       }
@@ -115,6 +120,7 @@ export default function Articles() {
 
     fetch(`https://web-api-silk-three.vercel.app/v1/articles`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
       },

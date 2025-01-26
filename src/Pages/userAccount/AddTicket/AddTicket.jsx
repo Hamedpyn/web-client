@@ -21,6 +21,7 @@ export default function AddTicket() {
 
     useEffect(() => {
         fetch(`https://web-api-silk-three.vercel.app/v1/tickets/departments`, {
+            credentials: 'include',
             headers: {
                 Authorization: `Bearer ${localStorageData.token}`
             },
@@ -39,6 +40,7 @@ export default function AddTicket() {
 
         fetch(`https://web-api-silk-three.vercel.app/v1/tickets`, {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${localStorageData.token}`

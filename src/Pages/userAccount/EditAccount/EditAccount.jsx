@@ -44,6 +44,7 @@ export default function EditAccount() {
         }
         fetch(`https://web-api-silk-three.vercel.app/v1/users`, {
             method: 'PUT',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${localStorageData.token}`

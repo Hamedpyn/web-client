@@ -22,7 +22,9 @@ export default function ArticlesPage() {
 
 
     useEffect(() => {
-        fetch(`https://web-api-silk-three.vercel.app/v1/articles/${blog}`)
+        fetch(`https://web-api-silk-three.vercel.app/v1/articles/${blog}`,{
+            credentials: 'include'
+        })
             .then(res => res.json())
             .then(articles => {
                 if (articles) {
