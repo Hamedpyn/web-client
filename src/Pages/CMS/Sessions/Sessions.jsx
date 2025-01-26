@@ -94,7 +94,6 @@ export default function Sessions() {
 
     fetch(`https://web-api-silk-three.vercel.app/v1/courses/${chosenCourse}/sessions`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
       },
@@ -118,7 +117,6 @@ export default function Sessions() {
   const removeCourses = () => {
     fetch(`https://web-api-silk-three.vercel.app/v1/courses/sessions/${sessionId}`, {
       method: 'DELETE',
-      credentials: 'include',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
       },
