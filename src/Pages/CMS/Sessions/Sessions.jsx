@@ -100,6 +100,7 @@ export default function Sessions() {
       body: formData
     })
       .then(res => {
+        console.log(res);
         if (res.ok) {
           Notify("success")
           getAllSessions()
