@@ -108,7 +108,7 @@ export default function Sessions() {
         } else {
           Notify("catError")
         }
-      })
+      }).then(res =>console.log(res))
   };
 
   const removeSessionsConfirmation = (ID) => {
