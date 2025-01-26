@@ -18,7 +18,6 @@ export default function Categories() {
 
   const [isLoading, setIsLoading] = useState(true);
   const [isCategories, setIsCategories] = useState(false);
-import SabzLearnContext from "../../Contexts/SabzlearnContext";
 
   const [orderedCourses, setOrderedCourses] = useState([]);
   const [sortItems, setSortItems] = useState("همه دوره ها");
