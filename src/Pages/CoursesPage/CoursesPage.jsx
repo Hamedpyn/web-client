@@ -45,8 +45,6 @@ export default function CoursesPage() {
     document.title = oneCourse?.name || 'سبزلرن'
     const getOneCourse = useCallback(() => {
         fetch(`https://web-api-silk-three.vercel.app/v1/courses/${id}`, {
-            method: 'GET',
-            credentials: 'include',
             headers: {
                 'Authorization': `Bearer ${localStorageData === null ? null : localStorageData.token}`
             }
@@ -55,12 +53,13 @@ export default function CoursesPage() {
             if (result) {
                 setSpinner(false)
             }
-            setImageSrc(`/images/${oneCourse.cover.slice(0, -3)}webp`)
+            setImageSrc(`/images/${result.cover.slice(0, -3)}webp`)
             setSessions(result.sessions)
             setComments(result.comments)
 
         })
     }, [id])
+    
     useEffect(() => {
         getOneCourse()
 
