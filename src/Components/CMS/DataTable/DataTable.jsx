@@ -2,6 +2,8 @@
 import { Modal, Table } from "flowbite-react";
 import { useMemo, useState } from "react";
 import EditModal from "../../EditModal/EditModal";
+import ImageComponent from "../ImageComponent/ImageComponent";
+
 
 export default function DataTable({ newUsers, disCounts, tickets, getAllComments, bodyValue, setBodyValue, bodySucceed, setBodySucceed, touched, setTouched, comment, tableTitles, session, cats, onEdit, Courses, Datas, name, onRemove, onBan, articles, onAccept, onReject }) {
     const [openAnswerModal, setOpenAnswerModal] = useState(false)
@@ -14,6 +16,7 @@ export default function DataTable({ newUsers, disCounts, tickets, getAllComments
             return time.slice(0, -2) + ':' + time.slice(-2);
         } return time
     };
+
     return (
         <>
             <div className="overflow-x-auto bg-white dark:bg-[#242A38] px-6 py-4 md:mx-4 rounded-xl">
@@ -75,7 +78,7 @@ export default function DataTable({ newUsers, disCounts, tickets, getAllComments
                                     <Table.Cell className="!rounded-none dana-medium">{item.price ? item.price.toLocaleString() : "رایگان"}</Table.Cell>
                                     <Table.Cell className="!rounded-none dana-medium">{item.name}</Table.Cell>
                                     <Table.Cell className="w-[150px]">
-                                        <img className="max-w-[100px] w-[100px] rounded h-[50px]" src={`https://web-api-silk-three.vercel.app/courses/covers/${item.cover}`} alt="image" />
+                                        <ImageComponent item={item} />
                                     </Table.Cell>
 
                                 </Table.Row>
@@ -83,6 +86,7 @@ export default function DataTable({ newUsers, disCounts, tickets, getAllComments
                             {
                                 useMemo(() =>
                                     articles && Datas.map((item, i) => (
+                                        
                                         <Table.Row key={i} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                                             <Table.Cell className="!rounded-none dana-medium text-red-600/80 dark:text-red-400">
                                                 <button className="underline" onClick={() => onRemove(item._id)}>Remove</button>
@@ -93,11 +97,12 @@ export default function DataTable({ newUsers, disCounts, tickets, getAllComments
                                             <Table.Cell className="w-[150px]">
                                                 <img
                                                     className="max-w-[100px] object-contain w-[100px] rounded h-[50px]"
-                                                    src={`https://web-api-silk-three.vercel.app/courses/covers/${item.cover}`}
+                                                    src={`/images/${item.cover}` ? `/images/${item.cover}` :'/images/NoImg.jpg' }
                                                     alt="image"
                                                 />
                                             </Table.Cell>
                                         </Table.Row>
+
                                     )),
                                     [Datas, articles, onRemove]) // Dependencies for memoization
                             }
