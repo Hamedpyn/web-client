@@ -1,17 +1,26 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { CiUser } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import { LuUsers2 } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
 export default memo(function CourseBox(props) {
+  const [imageSrc, setImageSrc] = useState(`/images/${props.cover}`);
+
+  const handleImageError = () => {
+    setImageSrc('/images/NoImg.jpg');
+  };
 
   return (
     <>
       <div className="flex flex-col sm:h-[400px] bg-white dark:bg-[#242A38] border-none overflow-hidden rounded-2xl z-0">
         <div className="h-[182px] relative overflow-hidden">
           <Link to={`/course/${props.shortName}/`}>
-            <img className='w-full h-44 object-cover rounded-2xl' src={`/images/${props.cover.slice(0,-3)}webp`} alt="course image" />
+            <img className='w-full h-44 object-cover rounded-2xl'
+              src={imageSrc}
+              onError={handleImageError}
+              alt={props?.cover ? `Cover image: ${props.cover}` : 'No image available'}
+            />
           </Link>
         </div>
         <div className="flex-grow px-5 pb-5 mt-2">

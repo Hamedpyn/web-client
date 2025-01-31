@@ -3,14 +3,23 @@ import { CiCalendar, CiUser } from "react-icons/ci";
 import { TbCircleArrowLeftFilled } from "react-icons/tb";
 import PersianDate from "../PersianDate/PersianDate"
 import { Link } from "react-router-dom";
-import { memo } from "react";
+import { memo, useState } from "react";
 
 export default memo(function ArticlesBox(props) {
+  const [imageSrc, setImageSrc] = useState(`/images/${props.cover}`);
+
+  const handleImageError = () => {
+    setImageSrc('/images/NoImg.jpg');
+  };
   return (
 
     <div className="flex flex-col bg-white dark:bg-[#242A38] border-none overflow-hidden rounded-2xl">
       <div className=" relative h-[182px] overflow-hidden">
-        <img className="block w-full h-full object-cover" src={`/images/${props.cover}`} alt="image" />
+        <img className="block w-full h-full object-cover"
+          src={imageSrc}
+          onError={handleImageError}
+          alt={props?.cover ? `Cover image: ${props.cover}` : 'No image available'}
+        />
       </div>
       <div className="flex-grow px-5 py-3">
         <h3 className="dana-demi dark:text-white text-gray-900 line-clamp-2 mb-3">

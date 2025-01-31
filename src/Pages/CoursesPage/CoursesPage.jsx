@@ -198,7 +198,7 @@ export default function CoursesPage() {
 
                         <div className="rounded-2xl flex flex-col lg:flex-row-reverse lg:justify-between gap-y-4 lg:p-0 p-4 mt-8 sm:mt-10 lg:gap-x-6 lg:!bg-transparent bg-[#f3f4f6] dark:bg-[#242A38] items-center xl:items-start">
                             <div className="lg:w-1/2">
-                                <video className="rounded-2xl" controls poster={`https://web-api-silk-three.vercel.app/courses/covers/${oneCourse.cover}`}>
+                                <video className="rounded-2xl" controls poster={`/images/${oneCourse.cover.slice(0,-3)}webp`}>
                                     <source />
                                 </video>
                             </div>
@@ -305,7 +305,7 @@ export default function CoursesPage() {
                                 </div>
                                 <BoxesTitle bg={"bg-amber-500"} title={"توضیحات"} icon={<IoDocumentText className="hidden md:inline-block text-amber-400 w-10 h-10" />}>
                                     <p className="dana-regular leading-7 opacity-70">{oneCourse.description}</p>
-                                    <img className="rounded-2xl" src={`https://web-api-silk-three.vercel.app/courses/covers/${oneCourse.cover}`} alt="" />
+                                    <img className="rounded-2xl" src={`/images/${oneCourse.cover.slice(0,-3)}webp`} alt="" />
 
                                 </BoxesTitle>
                                 <div id="session">
@@ -333,7 +333,7 @@ export default function CoursesPage() {
 
                                                 <div key={relatedCourses._id} className="flex items-center justify-between flex-wrap bg-[#f3f4f6] dark:bg-[#333C4C] rounded-lg py-2 pr-2 pl-4">
                                                     <div className="flex items-center gap-x-4 w-4/5">
-                                                        <img className="w-24 rounded-md aspect-video" src={`https://web-api-silk-three.vercel.app/courses/covers/${relatedCourses.cover}`} alt={relatedCourses.name} />
+                                                        <img className="w-24 rounded-md aspect-video" src={`/images/${relatedCourses.cover.slice(0,-3)}webp`} alt={relatedCourses.name} />
                                                         <Link to={`/course/${relatedCourses.shortName}`} className="dana-medium line-clamp-2 text-gray-900 dark:text-white">{relatedCourses.name}</Link>
                                                     </div>
                                                     <Link to={`/course/${relatedCourses.shortName}`} className="flex gap-x-1 items-center justify-between sm:justify-normal text-sky-500 dana-demi text-sm">

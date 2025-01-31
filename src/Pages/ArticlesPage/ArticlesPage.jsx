@@ -78,7 +78,7 @@ export default function ArticlesPage() {
 
                                 </div>
                                 <div className="rounded-2xl overflow-hidden mb-6">
-                                    <img className="w-full" src={`https://web-api-silk-three.vercel.app/courses/covers/${articlesDetails.cover}`} alt="Articles Image" />
+                                    <img className="w-full" src={`/images/${articlesDetails.cover}`} alt="Articles Image" />
                                 </div>
                                 <div>
                                     <div className="dana-regular article" dangerouslySetInnerHTML={{ __html: articlesDetails.body }} />
