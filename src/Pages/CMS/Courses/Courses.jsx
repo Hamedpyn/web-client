@@ -116,13 +116,13 @@ export default function Courses() {
 
     fetch(`https://web-api-silk-three.vercel.app/v1/courses`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         Authorization: `Bearer ${localStorageData.token}`
       },
       body: formData
     })
       .then(res => {
+        console.log(res);
         if (res.ok) {
           Notify("success")
           getAllCourses()
