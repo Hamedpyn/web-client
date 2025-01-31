@@ -18,11 +18,11 @@ export default function ArticlesPage() {
     const [isOpen, setIsOpen] = useState(false);
     const [articlesDetails, setArticlesDetails] = useState(null);
     const { blog } = useParams()
-
+    const [imageSrc, setImageSrc] = useState("");
 
 
     useEffect(() => {
-        fetch(`https://web-api-silk-three.vercel.app/v1/articles/${blog}`,{
+        fetch(`https://web-api-silk-three.vercel.app/v1/articles/${blog}`, {
             credentials: 'include'
         })
             .then(res => res.json())
@@ -31,6 +31,9 @@ export default function ArticlesPage() {
                     setArticlesDetails(articles);
                     setSpinner(false);
                     document.title = articles.title
+
+                    setImageSrc(`/images/${articles.cover.slice(0, -3)}jpg`)
+
                 }
             })
             .catch(error => {
@@ -40,6 +43,9 @@ export default function ArticlesPage() {
 
     }, [blog])
 
+    const handleImageError = () => {
+        setImageSrc('/images/NoImg.jpg');
+    };
     return (
         <>
             {spinner && !articlesDetails && (
@@ -78,7 +84,11 @@ export default function ArticlesPage() {
 
                                 </div>
                                 <div className="rounded-2xl overflow-hidden mb-6">
-                                    <img className="w-full" src={`/images/${articlesDetails.cover}`} alt="Articles Image" />
+                                    <img className="w-full"
+                                        src={imageSrc}
+                                        onError={handleImageError}
+                                        alt={articlesDetails?.cover ? `Cover image: ${articlesDetails.cover}` : 'No image available'}
+                                    />
                                 </div>
                                 <div>
                                     <div className="dana-regular article" dangerouslySetInnerHTML={{ __html: articlesDetails.body }} />

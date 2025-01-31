@@ -5,7 +5,7 @@ import { LuUsers2 } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
 export default memo(function CourseBox(props) {
-  const [imageSrc, setImageSrc] = useState(`/images/${props.cover}`);
+  const [imageSrc, setImageSrc] = useState(`/images/${props.cover.slice(0,-3)}webp`);
 
   const handleImageError = () => {
     setImageSrc('/images/NoImg.jpg');

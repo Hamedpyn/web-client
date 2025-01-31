@@ -6,11 +6,12 @@ import { Link } from "react-router-dom";
 import { memo, useState } from "react";
 
 export default memo(function ArticlesBox(props) {
-  const [imageSrc, setImageSrc] = useState(`/images/${props.cover}`);
+  const [imageSrc, setImageSrc] = useState(`/images/${props.cover.slice(0, -3)}jpg`);
 
   const handleImageError = () => {
     setImageSrc('/images/NoImg.jpg');
   };
+  
   return (
 
     <div className="flex flex-col bg-white dark:bg-[#242A38] border-none overflow-hidden rounded-2xl">

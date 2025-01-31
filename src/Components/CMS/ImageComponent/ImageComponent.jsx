@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const ImageComponent = ({ item }) => {
-    const [imageSrc, setImageSrc] = useState(`/images/${item.cover}`);
+    const [imageSrc, setImageSrc] = useState(`/images/${item.cover.slice(0,-3)}webp`);
 
     const handleImageError = () => {
         setImageSrc('/images/NoImg.jpg');
