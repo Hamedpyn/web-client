@@ -6,7 +6,7 @@ import { GoLock, GoUnlock } from "react-icons/go";
 import { useForm } from "../../Hooks/useFrom";
 import { CiUser } from "react-icons/ci";
 import { useContext, useState } from "react";
-import Toastify, { Notify } from "../Toastify/Toastify";
+import  { Notify } from "../Toastify/Toastify";
 import SabzLearnContext from "../../Contexts/SabzlearnContext";
 
 export default function Login({ setState }) {
@@ -108,9 +108,7 @@ export default function Login({ setState }) {
 
 			</div>
 
-			<div className="">
-				<Toastify />
-			</div>
+			
 		</>
 	)
 }

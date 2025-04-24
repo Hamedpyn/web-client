@@ -1,4 +1,4 @@
-import Toastify, { Notify } from '../../../Components/Toastify/Toastify'
+import { Notify } from '../../../Components/Toastify/Toastify'
 import DataTable from '../../../Components/CMS/DataTable/DataTable'
 import Pagination from '../../../Components/Pagination/Pagination'
 import { useEffect, useState, useCallback } from 'react'
@@ -203,7 +203,6 @@ export default function DisCounts() {
         <Pagination items={disCounts} itemsCount={8} setShownCourse={setFilteredDisCounts} />
         <ModalAlert onRemove={removeDisCount} openModal={openModal} setOpenModal={setOpenModal} msg={"آیا از حذف کد تخفیف اطمینان دارید؟"} />
       </div>
-      <Toastify />
     </>
   )
 }

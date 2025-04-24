@@ -5,7 +5,7 @@ import Input from "../Input/Input";
 import { emailValidators, maxValidators, minValidators } from "../../Rules/Rules";
 import { useForm } from "../../Hooks/useFrom";
 import { useNavigate } from "react-router";
-import Toastify, { Notify } from '../Toastify/Toastify'
+import { Notify } from '../Toastify/Toastify'
 import { useContext } from "react";
 import SabzLearnContext from "../../Contexts/SabzlearnContext";
 
@@ -138,9 +138,7 @@ export default function SignUp({ setState }) {
                 </div>
 
             </div>
-            <div className="">
-                <Toastify />
-            </div>
+            
         </>
 
     )

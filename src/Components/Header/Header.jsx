@@ -9,7 +9,7 @@ import SabzLearnContext from "../../Contexts/SabzlearnContext";
 import SideBar from "../SideBar/SideBar";
 import { HiMiniArrowRightStartOnRectangle } from "react-icons/hi2";
 import PersianDate from "../PersianDate/PersianDate";
-import Tostify, { Notify } from "../Toastify/Toastify";
+import { Notify } from "../Toastify/Toastify";
 import ModalAlert from "../CMS/Modal/Modal";
 import { SiAwssecretsmanager } from "react-icons/si";
 

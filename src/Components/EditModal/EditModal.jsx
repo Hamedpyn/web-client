@@ -1,7 +1,7 @@
 import { Modal } from "flowbite-react";
 import { MdOutlineShortText, MdOutlineTitle } from "react-icons/md";
 import { useEffect, useState } from "react";
-import Toastify, { Notify } from "../Toastify/Toastify"
+import { Notify } from "../Toastify/Toastify"
 
 export default function EditModal({ getAllComments, id, touched, bodyValue, setBodyValue, bodySucceed, setBodySucceed, setTouched, answer, name, setName, inputValue, tickets, setInputValue, openModal, setOpenModal, msg, onEdit }) {
     const [titleTouched, setTitleTouched] = useState(null)
@@ -179,7 +179,6 @@ export default function EditModal({ getAllComments, id, touched, bodyValue, setB
                 </Modal.Body>
 
             </Modal>
-            <Toastify />
         </>
     );
 }

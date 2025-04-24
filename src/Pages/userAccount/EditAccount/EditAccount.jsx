@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import UserPanelTitle from "../../../Components/UserPanelTitle/UserPanelTitle";
 import SabzLearnContext from "../../../Contexts/SabzlearnContext"
 import testEmail from "../../../Rules/Regex";
-import Toastify, { Notify } from "../../../Components/Toastify/Toastify";
+import  { Notify } from "../../../Components/Toastify/Toastify";
 import { GoLock } from "react-icons/go";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { IoMailOutline } from "react-icons/io5";
@@ -116,7 +116,6 @@ export default function EditAccount() {
                     </div>
                 </form>
             </div>
-            <Toastify />
         </>
     )
 }

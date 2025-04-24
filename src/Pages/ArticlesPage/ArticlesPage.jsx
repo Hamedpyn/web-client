@@ -9,7 +9,7 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { VscChevronDown } from "react-icons/vsc";
 import { HiOutlineClipboardDocument } from "react-icons/hi2";
-import Toastify, { Notify } from "../../Components/Toastify/Toastify";
+import { Notify } from "../../Components/Toastify/Toastify";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 
@@ -124,7 +124,6 @@ export default function ArticlesPage() {
                     </div>
                 </>
             )}
-            <Toastify />
             <Footer />
         </>
     )

@@ -14,7 +14,7 @@ import PersianDate from "../../Components/PersianDate/PersianDate"
 import CircleSpinner from "../../Components/CircleSpinner/CircleSpinner";
 import { TiInfoOutline } from "react-icons/ti";
 import Comments from "../../Components/Comments/Comments";
-import Toastify, { Notify } from "../../Components/Toastify/Toastify";
+import  { Notify } from "../../Components/Toastify/Toastify";
 import BreadCrumb from "../../Components/BreadCrumb/BreadCrumb";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
@@ -24,9 +24,6 @@ import { DisCountModal } from "../../Components/DisCountModa;/DisCountModal";
 
 export default function CoursesPage() {
     const [imageSrc, setImageSrc] = useState('');
-
-
-
     const [oneCourse, setOneCourse] = useState(null);
     const [off, setOff] = useState('');
     const [sessions, setSessions] = useState([]);
@@ -415,7 +412,6 @@ export default function CoursesPage() {
             }
             <ModalAlert onRemove={registerInCourseConfirmation} openModal={openModal} setOpenModal={setOpenModal} msg={"آیا از ثبت نام در دوره اطمینان دارید؟"} />
             <DisCountModal setNoOff={setNoOff} value={off} setValue={setOff} setConfirm={setConfirm} openModal={openOffModal} setOpenModal={setOpenOffModal} />
-            <Toastify />
         </>
     )
 }

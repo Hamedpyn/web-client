@@ -2,8 +2,7 @@ import { VscPercentage } from "react-icons/vsc";
 import Input from "../../../Components/Input/Input";
 import { useForm } from "../../../Hooks/useFrom";
 import { maxValidators, minValidators } from "../../../Rules/Rules";
-import Toastify, { Notify } from "../../../Components/Toastify/Toastify";
-import { useEffect } from "react";
+import { Notify } from "../../../Components/Toastify/Toastify";
 
 
 export default function Campaign() {
@@ -78,7 +77,7 @@ export default function Campaign() {
                 </div>
 
             </div>
-            <Toastify />
+            < />
         </div>
     )
 }

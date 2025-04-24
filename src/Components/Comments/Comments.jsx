@@ -1,7 +1,7 @@
 import PersianDate from '../PersianDate/PersianDate'
 import { TiInfoOutline } from 'react-icons/ti'
 import { GrUndo } from 'react-icons/gr'
-import Toastify, { Notify } from '../Toastify/Toastify'
+import { Notify } from '../Toastify/Toastify'
 import { BsExclamationTriangle } from 'react-icons/bs'
 import { FaUser } from 'react-icons/fa'
 import BoxesTitle from '../BoxesTitle/BoxesTitle'
@@ -53,7 +53,7 @@ export default memo(function Comments({ setIsNewComment, isNewComment, closeComm
                         <button onClick={() => sendComment(newCommentBody)} className="py-3 hover:bg-[#16A34A] transition-colors rounded-full bg-[#22C55E] flex-grow sm:grow-0 sm:w-36 button-lg button-primary dana-medium">ارسال</button>
                     </div>
                 </div>) : (
-                <Toastify />
+                
             )}
 
             <div

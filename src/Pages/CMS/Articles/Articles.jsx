@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import DataTable from "../../../Components/CMS/DataTable/DataTable"
 import Pagination from "../../../Components/Pagination/Pagination"
 import ModalAlert from "../../../Components/CMS/Modal/Modal"
-import Toastify, { Notify } from "../../../Components/Toastify/Toastify"
+import  { Notify } from "../../../Components/Toastify/Toastify"
 import Input from "../../../Components/Input/Input"
 import { maxValidators, minValidators } from "../../../Rules/Rules"
 import { MdOutlineShortText, MdTitle } from "react-icons/md"
@@ -243,7 +243,6 @@ export default function Articles() {
         <Pagination items={articles} itemsCount={8} setShownCourse={setFilteredArticles} />
         <ModalAlert onRemove={removeArticle} openModal={openModal} setOpenModal={setOpenModal} msg={"آیا از حذف مقاله اطمینان دارید؟"} />
       </div>
-      <Toastify />
     </>
   )
 }

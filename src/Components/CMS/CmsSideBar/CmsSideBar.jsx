@@ -10,7 +10,7 @@ import { LuUsers } from "react-icons/lu";
 import { RiDiscountPercentLine } from "react-icons/ri";
 import { TbCategoryPlus } from "react-icons/tb";
 import { HiMiniArrowRightStartOnRectangle } from "react-icons/hi2";
-import Toastify, { Notify } from '../../Toastify/Toastify'
+import { Notify } from '../../Toastify/Toastify'
 import ModalAlert from "../Modal/Modal";
 import { MdOutlineCampaign, MdOutlineVideoLibrary } from "react-icons/md";
 import { VscCommentDiscussion } from "react-icons/vsc";
@@ -139,7 +139,6 @@ export default function CmsSideBar({ isCmsSideBar, setIsCmsSideBar }) {
           </ul>
         </div>
       </div>
-      <Toastify />
       <div ref={bodyShadow} className="lg:hidden"></div>
       <ModalAlert onRemove={logOutConfirmation} openModal={openModal} setOpenModal={setOpenModal} msg={"آیا از خروج از اکانت خود مطمئن هستید؟"} />
 

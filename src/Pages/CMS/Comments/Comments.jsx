@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import DataTable from "../../../Components/CMS/DataTable/DataTable";
 import Pagination from "../../../Components/Pagination/Pagination";
 import ModalAlert from "../../../Components/CMS/Modal/Modal";
-import Toastify, { Notify } from '../../../Components/Toastify/Toastify'
+import  { Notify } from '../../../Components/Toastify/Toastify'
 
 export default function Comments() {
     const commentsTitle = [
@@ -140,7 +140,6 @@ export default function Comments() {
                 <ModalAlert onRemove={rejectComment} openModal={openRejectModal} setOpenModal={setOpenRejectModal} msg={"آیا از عدم تایید کامنت اطمینان دارید؟"} />
 
             </div>
-            <Toastify />
         </>
     )
 }

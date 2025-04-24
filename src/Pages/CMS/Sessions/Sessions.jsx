@@ -4,7 +4,7 @@ import { useForm } from "../../../Hooks/useFrom";
 import { maxValidators, minValidators } from "../../../Rules/Rules";
 import { LuClock3 } from "react-icons/lu";
 import { useEffect, useState } from "react";
-import Toastify, { Notify } from '../../../Components/Toastify/Toastify'
+import { Notify } from '../../../Components/Toastify/Toastify'
 import DataTable from "../../../Components/CMS/DataTable/DataTable";
 import Pagination from "../../../Components/Pagination/Pagination";
 import ModalAlert from "../../../Components/CMS/Modal/Modal";
@@ -229,7 +229,6 @@ export default function Sessions() {
         <Pagination items={sessions} itemsCount={8} setShownCourse={setFilteredSessions} />
         <ModalAlert onRemove={removeCourses} openModal={openModal} setOpenModal={setOpenModal} msg={"آیا از حذف جلسه اطمینان دارید؟"} />
       </div>
-      <Toastify />
     </>
   )
 }

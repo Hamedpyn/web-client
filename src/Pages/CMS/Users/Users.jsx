@@ -6,7 +6,7 @@ import { GoLock } from "react-icons/go";
 import { MdFamilyRestroom, MdOutlineLocalPhone, MdOutlineMail } from "react-icons/md";
 import Pagination from "../../../Components/Pagination/Pagination";
 import ModalAlert from "../../../Components/CMS/Modal/Modal";
-import Toastify, { Notify } from '../../../Components/Toastify/Toastify'
+import  { Notify } from '../../../Components/Toastify/Toastify'
 import Input from "../../../Components/Input/Input";
 import { emailValidators, maxValidators, minValidators } from "../../../Rules/Rules";
 import { useForm } from "../../../Hooks/useFrom";
@@ -227,7 +227,6 @@ export default function Users() {
         <ModalAlert onRemove={banMustHappen} openModal={openBanModal} setOpenModal={setOpenBanModal} msg={"آیا از بن کاربر اطمینان دارید؟"} />
         <ModalAlert value={value} setValue={setValue} roll={true} onRemove={changeRoll} openModal={openRollModal} setOpenModal={setOpenRollModal} msg={"نقش موردنظر خود را وارد کنید"} />
       </div>
-      <Toastify />
     </>
   )
 }

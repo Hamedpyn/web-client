@@ -6,7 +6,7 @@ import { IoChevronBackSharp, IoMoonOutline, IoSunnyOutline, IoWalletOutline } fr
 import PersianDate from "../PersianDate/PersianDate";
 import { HiMiniArrowRightStartOnRectangle } from "react-icons/hi2";
 import ModalAlert from "../CMS/Modal/Modal";
-import Toastify, { Notify } from "../Toastify/Toastify";
+import  { Notify } from "../Toastify/Toastify";
 import { PiGraduationCap, PiSquaresFour } from "react-icons/pi";
 import { VscCommentDiscussion } from "react-icons/vsc";
 import { RiQuestionLine } from "react-icons/ri"; import { FiEdit } from "react-icons/fi";
@@ -134,7 +134,6 @@ export default function UserPanelSideBar({ isCmsSideBar, setIsCmsSideBar, userIn
                 </div>
 
             </div>
-            <Toastify />
             <div ref={bodyShadow} className="lg:hidden"></div>
             <ModalAlert onRemove={logOutConfirmation} openModal={openModal} setOpenModal={setOpenModal} msg={"آیا از خروج از اکانت خود مطمئن هستید؟"} />
 

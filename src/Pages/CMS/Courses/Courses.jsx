@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import DataTable from '../../../Components/CMS/DataTable/DataTable'
 import Pagination from '../../../Components/Pagination/Pagination'
 import ModalAlert from '../../../Components/CMS/Modal/Modal'
-import Toastify, { Notify } from '../../../Components/Toastify/Toastify'
+import { Notify } from '../../../Components/Toastify/Toastify'
 import { BsCoin } from "react-icons/bs";
 import { TbFileDescription } from "react-icons/tb";
 import Input from '../../../Components/Input/Input'
@@ -264,7 +264,6 @@ export default function Courses() {
         <ModalAlert onRemove={removeCourses} openModal={openModal} setOpenModal={setOpenModal} msg={"آیا از حذف دوره اطمینان دارید؟"} />
 
       </div>
-      <Toastify />
     </>
   )
 }

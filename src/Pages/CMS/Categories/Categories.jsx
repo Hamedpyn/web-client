@@ -4,7 +4,7 @@ import { useForm } from "../../../Hooks/useFrom";
 import { maxValidators, minValidators } from "../../../Rules/Rules";
 import { MdOutlineShortText, MdOutlineTitle } from "react-icons/md";
 import Input from "../../../Components/Input/Input";
-import Toastify, { Notify } from '../../../Components/Toastify/Toastify'
+import  { Notify } from '../../../Components/Toastify/Toastify'
 import ModalAlert from "../../../Components/CMS/Modal/Modal";
 import EditModal from "../../../Components/EditModal/EditModal";
 
@@ -153,7 +153,6 @@ export default function Categories() {
         </div>
 
       </div>
-      <Toastify />
 
       <DataTable onEdit={editCategoryConfirmation} onRemove={removeCategoryConfirmation} cats={true} tableTitles={catsTitle} Datas={categories} name={'دسته بندی ها'} />
 

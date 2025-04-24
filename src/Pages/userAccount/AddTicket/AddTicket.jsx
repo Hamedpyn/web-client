@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import UserPanelTitle from "../../../Components/UserPanelTitle/UserPanelTitle";
 import { FaChevronDown } from "react-icons/fa";
 import { BsUpload } from "react-icons/bs";
-import Toastify, { Notify } from "../../../Components/Toastify/Toastify";
+import  { Notify } from "../../../Components/Toastify/Toastify";
 export default function AddTicket() {
     const [title, setTitle] = useState('')
     const [titleBlur, setTitleBlur] = useState(false)
@@ -147,7 +147,6 @@ export default function AddTicket() {
                     </div>
                 </form>
             </div>
-            <Toastify />
         </>
 
     )
