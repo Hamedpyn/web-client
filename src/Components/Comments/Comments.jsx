@@ -23,7 +23,7 @@ export default memo(function Comments({ setIsNewComment, isNewComment, closeComm
             }
             setIsNewComment(true)
         }} comment={true} bg={"bg-[#EF4444]"} title={"نظرات"} icon={<HiChatBubbleLeftRight className="hidden md:inline-block text-[#EF4444] w-10 h-10" />}>
-            {isLoggedIn ? (
+            {isLoggedIn && (
                 <div
                     ref={contentRef}
                     style={{
@@ -55,9 +55,7 @@ export default memo(function Comments({ setIsNewComment, isNewComment, closeComm
                         <button onClick={() => closeComment()} className="py-3 rounded-full flex-grow sm:grow-0 sm:w-36 button-lg button-primary button-outline dana-medium border border-[#22C55E] transition-colors hover:bg-[#22C55E] hover:text-white text-[#22C55E]">لغو</button>
                         <button onClick={() => sendComment(newCommentBody)} className="py-3 hover:bg-[#16A34A] transition-colors rounded-full bg-[#22C55E] flex-grow sm:grow-0 sm:w-36 button-lg button-primary dana-medium">ارسال</button>
                     </div>
-                </div>) : (
-                
-            )}
+                </div>)}
 
             <div
                 style={{
