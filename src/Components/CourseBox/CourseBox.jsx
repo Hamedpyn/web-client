@@ -1,15 +1,11 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import { CiUser } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import { LuUsers2 } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
 export default memo(function CourseBox(props) {
-  const [imageSrc, setImageSrc] = useState(`/images/${props.cover.slice(0,-3)}webp`);
 
-  const handleImageError = () => {
-    setImageSrc('/images/NoImg.jpg');
-  };
 
   return (
     <>
@@ -17,7 +13,7 @@ export default memo(function CourseBox(props) {
         <div className="h-[182px] relative overflow-hidden">
           <Link to={`/course/${props.shortName}/`}>
             <img className='w-full h-44 object-cover rounded-2xl'
-              src={imageSrc}
+              src={props.cover}
               onError={handleImageError}
               alt={props?.cover ? `Cover image: ${props.cover}` : 'No image available'}
             />
