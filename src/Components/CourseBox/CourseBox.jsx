@@ -14,7 +14,6 @@ export default memo(function CourseBox(props) {
           <Link to={`/course/${props.shortName}/`}>
             <img className='w-full h-44 object-cover rounded-2xl'
               src={props.cover}
-              onError={handleImageError}
               alt={props?.cover ? `Cover image: ${props.cover}` : 'No image available'}
             />
           </Link>
