@@ -1,4 +1,4 @@
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export const Notify = (type,msg) => {
   const options = {
@@ -98,15 +98,3 @@ export const Notify = (type,msg) => {
       break;
   }
 };
-
-
-export default function Toastify() {
-  return (
-    <ToastContainer
-      rtl={true}
-      className={'font !top-10'}
-      pauseOnHover={false} // Global setting to prevent pausing on hover
-      pauseOnFocusLoss={false} // Global setting to prevent pausing on focus loss
-    />
-  );
-}
