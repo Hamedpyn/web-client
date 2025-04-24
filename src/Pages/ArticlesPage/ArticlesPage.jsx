@@ -78,7 +78,7 @@ export default function ArticlesPage() {
                                 </div>
                                 <div className="rounded-2xl overflow-hidden mb-6">
                                     <img className="w-full"
-                                        src={articlesDetails.cover}
+                                        src={!articlesDetails.cover.startsWith('http') ? `/images/${articlesDetails.cover.slice(0, -3)}jpg` : articlesDetails.cover}
                                         alt={articlesDetails?.cover ? `Cover image: ${articlesDetails.cover}` : 'No image available'}
                                     />
                                 </div>

@@ -23,7 +23,6 @@ import Swal from "sweetalert2";
 
 
 export default function CoursesPage() {
-    const [imageSrc, setImageSrc] = useState('');
     const [oneCourse, setOneCourse] = useState(null);
     const [off, setOff] = useState('');
     const [sessions, setSessions] = useState([]);
@@ -50,7 +49,6 @@ export default function CoursesPage() {
             if (result) {
                 setSpinner(false)
             }
-            setImageSrc(`/images/${result.cover.slice(0, -3)}webp`)
             setSessions(result.sessions)
             setComments(result.comments)
 
@@ -207,7 +205,7 @@ export default function CoursesPage() {
                         title: "موفق",
                         text: `شما توانستید این دوره را با قیمت نهایی ${(oneCourse.price - (oneCourse.price * oneCourse.discount) / 100)} خریداری کنید.`,
                         icon: "success"
-                      });
+                    });
                     getOneCourse();
                     return res.json();
                 } else {
@@ -215,7 +213,8 @@ export default function CoursesPage() {
                         title: "ناموفق",
                         text: "عملیات ناموفقیت آمیز بود!",
                         icon: "error"
-                      });                }
+                    });
+                }
             })
         }
     }, [noOff])
@@ -235,7 +234,7 @@ export default function CoursesPage() {
                         <div className="rounded-2xl flex flex-col lg:flex-row-reverse lg:justify-between gap-y-4 lg:p-0 p-4 mt-8 sm:mt-10 lg:gap-x-6 lg:!bg-transparent bg-[#f3f4f6] dark:bg-[#242A38] items-center xl:items-start">
                             <div className="lg:w-1/2">
                                 <video className="rounded-2xl" controls
-                                    poster={oneCourse.cover}
+                                    poster={!oneCourse.cover.startsWith('http') ? `/images/${oneCourse.cover.slice(0, -3)}webp` : oneCourse.cover}
                                     alt={oneCourse?.cover ? `Cover image: ${oneCourse.cover}` : 'No image available'}
                                 >
                                     <source />
@@ -345,7 +344,7 @@ export default function CoursesPage() {
                                 <BoxesTitle bg={"bg-amber-500"} title={"توضیحات"} icon={<IoDocumentText className="hidden md:inline-block text-amber-400 w-10 h-10" />}>
                                     <p className="dana-regular leading-7 opacity-70">{oneCourse.description}</p>
                                     <img className="rounded-2xl"
-                                        src={oneCourse.cover}
+                                        src={!oneCourse.cover.startsWith('http') ? `/images/${oneCourse.cover.slice(0, -3)}webp` : oneCourse.cover}
                                         alt={oneCourse?.cover ? `Cover image: ${oneCourse.cover}` : 'No image available'}
                                     />
 
@@ -376,7 +375,7 @@ export default function CoursesPage() {
                                                 <div key={relatedCourses._id} className="flex items-center justify-between flex-wrap bg-[#f3f4f6] dark:bg-[#333C4C] rounded-lg py-2 pr-2 pl-4">
                                                     <div className="flex items-center gap-x-4 w-4/5">
 
-                                                        <img className="w-24 rounded-md aspect-video" src={relatedCourses.cover}
+                                                        <img className="w-24 rounded-md aspect-video" src={!relatedCourses.cover.startsWith('http') ?`/images/${relatedCourses.cover.slice(0,-3)}webp` :relatedCourses.cover}
                                                             alt={relatedCourses?.cover ? `Cover image: ${relatedCourses.cover}` : 'No image available'}
                                                         />
 

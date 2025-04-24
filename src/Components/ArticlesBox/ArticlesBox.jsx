@@ -12,7 +12,7 @@ export default memo(function ArticlesBox(props) {
     <div className="flex flex-col bg-white dark:bg-[#242A38] border-none overflow-hidden rounded-2xl">
       <div className=" relative h-[182px] overflow-hidden">
         <img className="block w-full h-full object-cover"
-          src={props.cover}
+          src={!props.cover.startsWith('http')? `/images/${props.cover.slice(0, -3)}jpg`:props.cover }
           alt={props?.cover ? `Cover image: ${props.cover}` : 'No image available'}
         />
       </div>

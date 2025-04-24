@@ -13,7 +13,7 @@ export default memo(function CourseBox(props) {
         <div className="h-[182px] relative overflow-hidden">
           <Link to={`/course/${props.shortName}/`}>
             <img className='w-full h-44 object-cover rounded-2xl'
-              src={props.cover}
+              src={!props.cover.startsWith('http') ?`/images/${props.cover.slice(0,-3)}webp` :props.cover}
               alt={props?.cover ? `Cover image: ${props.cover}` : 'No image available'}
             />
           </Link>

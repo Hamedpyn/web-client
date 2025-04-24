@@ -86,7 +86,7 @@ export default function DataTable({ newUsers, disCounts, tickets, getAllComments
                             {
                                 useMemo(() =>
                                     articles && Datas.map((item, i) => (
-                                        
+
                                         <Table.Row key={i} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                                             <Table.Cell className="!rounded-none dana-medium text-red-600/80 dark:text-red-400">
                                                 <button className="underline" onClick={() => onRemove(item._id)}>Remove</button>
@@ -97,7 +97,7 @@ export default function DataTable({ newUsers, disCounts, tickets, getAllComments
                                             <Table.Cell className="w-[150px]">
                                                 <img
                                                     className="max-w-[100px] object-contain w-[100px] rounded h-[50px]"
-                                                    src={`/images/${item.cover}` ? `/images/${item.cover}` :'/images/NoImg.jpg' }
+                                                    src={!item.cover.startsWith('http') ?`/images/${item.cover.slice(0,-3)}jpg` :item.cover}
                                                     alt="image"
                                                 />
                                             </Table.Cell>
