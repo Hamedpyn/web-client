@@ -122,13 +122,15 @@ export default function Courses() {
       body: formData
     })
       .then(res => {
-        console.log(res);
         if (res.ok) {
           Notify("success")
           getAllCourses()
           return res.json()
         } else {
           Notify("catError")
+          return res.json().then(err => {
+          throw new Error(err.message || 'Something went wrong');
+        });
         }
       })
 
