@@ -14,12 +14,12 @@ import PersianDate from "../../Components/PersianDate/PersianDate"
 import CircleSpinner from "../../Components/CircleSpinner/CircleSpinner";
 import { TiInfoOutline } from "react-icons/ti";
 import Comments from "../../Components/Comments/Comments";
-import  { Notify } from "../../Components/Toastify/Toastify";
 import BreadCrumb from "../../Components/BreadCrumb/BreadCrumb";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import ModalAlert from "../../Components/CMS/Modal/Modal";
 import { DisCountModal } from "../../Components/DisCountModa;/DisCountModal";
+import Swal from "sweetalert2";
 
 
 export default function CoursesPage() {
@@ -56,7 +56,7 @@ export default function CoursesPage() {
 
         })
     }, [id])
-    
+
     useEffect(() => {
         getOneCourse()
 
@@ -93,7 +93,11 @@ export default function CoursesPage() {
                 courseShortName: id
             }),
         })
-        Notify('YesComment')
+        Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+        });
         setTimeout(() => {
             setIsNewComment(false)
         }, 2500);
@@ -114,11 +118,18 @@ export default function CoursesPage() {
                 body: JSON.stringify({ price: oneCourse.price })
             }).then(res => {
                 if (res.ok) {
-                    Notify("success")
-                    getOneCourse()
+                    Swal.fire({
+                        title: "موفق",
+                        text: "عملیات با موفقیت به انجام رسید.",
+                        icon: "success"
+                    }); getOneCourse()
                     return res.json()
                 } else {
-                    Notify('catError')
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "عملیات ناموفقیت آمیز بود!",
+                        icon: "error"
+                    });
                 }
             })
         } else {
@@ -138,9 +149,17 @@ export default function CoursesPage() {
             }).then(res => {
 
                 if (res.status == 404) {
-                    Notify("Off404")
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "کد نامعتبر",
+                        icon: "error"
+                    });
                 } else if (res.status == 409) {
-                    Notify('Off409')
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "قبلا از این کد استفاده شده است",
+                        icon: "error"
+                    });
                 } else {
                     return res.json()
                 }
@@ -155,11 +174,20 @@ export default function CoursesPage() {
                     body: JSON.stringify({ price: oneCourse.price - (oneCourse.price * result.percent / 100) })
                 }).then(res => {
                     if (res.ok) {
-                        Notify("Off200", ` شما توانستید این دوره را با ${result.percent} درصد تخفیف به قیمت نهایی ${oneCourse.price - (oneCourse.price * result.percent / 100)} تومان خریداری کنید. `)
+                        Swal.fire({
+                            title: "موفق",
+                            text: ` شما توانستید این دوره را با ${result.percent} درصد تخفیف به قیمت نهایی ${oneCourse.price - (oneCourse.price * result.percent / 100)} تومان خریداری کنید. `,
+                            icon: "success"
+                        });
+
                         getOneCourse()
                         return res.json()
                     } else {
-                        Notify("catError")
+                        Swal.fire({
+                            title: "ناموفق",
+                            text: "عملیات ناموفقیت آمیز بود!",
+                            icon: "error"
+                        });
                     }
                 })
             })
@@ -178,12 +206,19 @@ export default function CoursesPage() {
                 body: JSON.stringify({ price: oneCourse.price })
             }).then(res => {
                 if (res.ok) {
-                    Notify("Off200", `شما توانستید این دوره را با قیمت نهایی ${(oneCourse.price - (oneCourse.price * oneCourse.discount) / 100)} خریداری کنید.`);
+                    Swal.fire({
+                        title: "موفق",
+                        text: `شما توانستید این دوره را با قیمت نهایی ${(oneCourse.price - (oneCourse.price * oneCourse.discount) / 100)} خریداری کنید.`,
+                        icon: "success"
+                      });
                     getOneCourse();
                     return res.json();
                 } else {
-                    Notify('catError')
-                }
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "عملیات ناموفقیت آمیز بود!",
+                        icon: "error"
+                      });                }
             })
         }
     }, [noOff])

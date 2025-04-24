@@ -4,11 +4,11 @@ import { useForm } from "../../../Hooks/useFrom";
 import { maxValidators, minValidators } from "../../../Rules/Rules";
 import { LuClock3 } from "react-icons/lu";
 import { useEffect, useState } from "react";
-import { Notify } from '../../../Components/Toastify/Toastify'
 import DataTable from "../../../Components/CMS/DataTable/DataTable";
 import Pagination from "../../../Components/Pagination/Pagination";
 import ModalAlert from "../../../Components/CMS/Modal/Modal";
 import { FaChevronDown } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 export default function Sessions() {
   const [courses, setCourses] = useState([])
@@ -41,7 +41,11 @@ export default function Sessions() {
     if (target.files && target.files[0]) {
       const maxAllowedSize = 50 * 1024 * 1024; // 50MB in bytes
       if (target.files[0].size > maxAllowedSize) {
-        Notify('file'); // Display error message
+        Swal.fire({
+          title: "ناموفق",
+          text: "حجم فایل باید کمتر از 50 مگابایت باشد.",
+          icon: "error"
+        });
         target.value = ""
       } else {
         setCover(target.files[0]); // Set the file if it's valid
@@ -57,7 +61,7 @@ export default function Sessions() {
   ]
 
   const getAllSessions = () => {
-    fetch("https://web-api-silk-three.vercel.app/v1/courses/sessions",{
+    fetch("https://web-api-silk-three.vercel.app/v1/courses/sessions", {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -65,7 +69,7 @@ export default function Sessions() {
   };
 
   useEffect(() => {
-    fetch("https://web-api-silk-three.vercel.app/v1/courses",{
+    fetch("https://web-api-silk-three.vercel.app/v1/courses", {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -102,13 +106,20 @@ export default function Sessions() {
       .then(res => {
         console.log(res);
         if (res.ok) {
-          Notify("success")
-          getAllSessions()
+          Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+          }); getAllSessions()
           res.json()
         } else {
-          Notify("catError")
+          Swal.fire({
+            title: "ناموفق",
+            text: "عملیات ناموفقیت آمیز بود!",
+            icon: "error"
+          });
         }
-      }).then(res =>console.log(res))
+      }).then(res => console.log(res))
   };
 
   const removeSessionsConfirmation = (ID) => {
@@ -125,11 +136,19 @@ export default function Sessions() {
       .then(res => {
 
         if (res.ok) {
-          Notify("success")
+          Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+          });
           getAllSessions()
-          return res.json()
+          res.json()
         } else {
-          Notify("catError")
+          Swal.fire({
+            title: "ناموفق",
+            text: "عملیات ناموفقیت آمیز بود!",
+            icon: "error"
+          });
         }
       })
   };

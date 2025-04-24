@@ -2,16 +2,16 @@ import { useContext, useEffect, useState } from "react";
 import UserPanelTitle from "../../../Components/UserPanelTitle/UserPanelTitle";
 import SabzLearnContext from "../../../Contexts/SabzlearnContext"
 import testEmail from "../../../Rules/Regex";
-import  { Notify } from "../../../Components/Toastify/Toastify";
 import { GoLock } from "react-icons/go";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { IoMailOutline } from "react-icons/io5";
 import { MdPhoneIphone } from "react-icons/md";
 import { BsUpload } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 export default function EditAccount() {
     let { userInfos } = useContext(SabzLearnContext)
-    const [file, setFile] = useState('')
+    const [, setFile] = useState('')
     const [name, setName] = useState('')
     const [userName, setUserName] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
@@ -52,14 +52,23 @@ export default function EditAccount() {
             body: JSON.stringify(newDetails)
         }).then(res => {
             if (res.ok) {
-                Notify("success")
-                return res.json()
+                Swal.fire({
+                    title: "موفق",
+                    text: "عملیات با موفقیت به انجام رسید.",
+                    icon: "success"
+                  });                return res.json()
             } else {
-                Notify("catError")
-            }
+                Swal.fire({
+                    title: "ناموفق",
+                    text: "عملیات ناموفقیت آمیز بود!",
+                    icon: "error"
+                  });            }
         }).catch(() => {
-            Notify("catError")
-        })
+            Swal.fire({
+                title: "ناموفق",
+                text: "عملیات ناموفقیت آمیز بود!",
+                icon: "error"
+              });        })
     };
 
     return (

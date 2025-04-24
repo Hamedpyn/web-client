@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import DataTable from '../../../Components/CMS/DataTable/DataTable'
 import Pagination from '../../../Components/Pagination/Pagination'
 import ModalAlert from '../../../Components/CMS/Modal/Modal'
-import { Notify } from '../../../Components/Toastify/Toastify'
 import { BsCoin } from "react-icons/bs";
 import { TbFileDescription } from "react-icons/tb";
 import Input from '../../../Components/Input/Input'
@@ -11,6 +10,8 @@ import { MdOutlineShortText, MdTitle } from 'react-icons/md'
 import { useForm } from "../../../Hooks/useFrom"
 import { BiSupport } from "react-icons/bi";
 import { FaChevronDown } from 'react-icons/fa'
+import Swal from 'sweetalert2'
+
 export default function Courses() {
   const [Courses, setCourses] = useState([])
   const [FilteredCourses, setFilteredCourses] = useState([])
@@ -57,7 +58,7 @@ export default function Courses() {
   ]
 
   const getAllCourses = () => {
-    fetch('https://web-api-silk-three.vercel.app/v1/courses',{
+    fetch('https://web-api-silk-three.vercel.app/v1/courses', {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -65,7 +66,7 @@ export default function Courses() {
   };
 
   useEffect(() => {
-    fetch('https://web-api-silk-three.vercel.app/v1/category',{
+    fetch('https://web-api-silk-three.vercel.app/v1/category', {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -90,11 +91,19 @@ export default function Courses() {
     })
       .then(res => {
         if (res.ok) {
-          Notify("success")
+          Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+          });
           getAllCourses()
           return res.json()
         } else {
-          Notify("catError")
+          Swal.fire({
+            title: "ناموفق",
+            text: "عملیات ناموفقیت آمیز بود!",
+            icon: "error"
+          });
         }
       })
 
@@ -121,16 +130,23 @@ export default function Courses() {
       },
       body: formData
     })
-      .then(res => {
+      .then(async res => {
         if (res.ok) {
-          Notify("success")
+          await Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+          });
           getAllCourses()
           return res.json()
         } else {
-          Notify("catError")
-          return res.json().then(err => {
-          throw new Error(err.message || 'Something went wrong');
-        });
+          Swal.fire({
+            title: "ناموفق",
+            text: "عملیات ناموفقیت آمیز بود!",
+            icon: "error"
+          }); return res.json().then(err => {
+            throw new Error(err.message || 'Something went wrong');
+          });
         }
       })
 

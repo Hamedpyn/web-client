@@ -5,9 +5,9 @@ import Input from "../Input/Input";
 import { emailValidators, maxValidators, minValidators } from "../../Rules/Rules";
 import { useForm } from "../../Hooks/useFrom";
 import { useNavigate } from "react-router";
-import { Notify } from '../Toastify/Toastify'
 import { useContext } from "react";
 import SabzLearnContext from "../../Contexts/SabzlearnContext";
+import Swal from "sweetalert2";
 
 export default function SignUp({ setState }) {
     let navigate = useNavigate()
@@ -62,17 +62,27 @@ export default function SignUp({ setState }) {
                 console.log(result.message);
                 if (result.message === "this phone number banned!") {
                     console.log(result.message);
-                    Notify('banReg')
-
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "این شماره بن میباشد",
+                        icon: "error"
+                    });
                 } else {
                     if (result.accessToken) {
                         login(result.accessToken, result.user)
-                        Notify('success')
-                        setTimeout(() => {
+                        Swal.fire({
+                            title: "موفق",
+                            text: "عملیات با موفقیت به انجام رسید.",
+                            icon: "success"
+                        }); setTimeout(() => {
                             navigate('/') // Navigate user after successful registration
                         }, 2500);
                     } else {
-                        Notify('errorReg')
+                        Swal.fire({
+                            title: "ناموفق",
+                            text: "اطلاعات وارد شده در سامانه موجود میباشد.لطفا دوباره تلاش کنید.",
+                            icon: "error"
+                        });
                     }
                 }
             })
@@ -138,7 +148,7 @@ export default function SignUp({ setState }) {
                 </div>
 
             </div>
-            
+
         </>
 
     )

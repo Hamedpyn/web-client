@@ -9,9 +9,9 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { VscChevronDown } from "react-icons/vsc";
 import { HiOutlineClipboardDocument } from "react-icons/hi2";
-import { Notify } from "../../Components/Toastify/Toastify";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import Swal from "sweetalert2";
 
 export default function ArticlesPage() {
     const [spinner, setSpinner] = useState(true);
@@ -112,7 +112,11 @@ export default function ArticlesPage() {
                                     <div className="flex items-center justify-between gap-x-3 p-4 mt-4 bg-sky-500/10 text-sky-500 border border-dashed border-sky-500 rounded-lg">
                                         <button onClick={() => {
                                             navigator.clipboard.writeText('sabzlearn.ir/?p=5397')
-                                            Notify("copy")
+                                            Swal.fire({
+                                                title: "موفق",
+                                                text: "عملیات با موفقیت به انجام رسید.",
+                                                icon: "success"
+                                            });
                                         }}>
                                             <HiOutlineClipboardDocument className="text-3xl" />
                                         </button>

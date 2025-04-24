@@ -6,10 +6,10 @@ import { GoLock } from "react-icons/go";
 import { MdFamilyRestroom, MdOutlineLocalPhone, MdOutlineMail } from "react-icons/md";
 import Pagination from "../../../Components/Pagination/Pagination";
 import ModalAlert from "../../../Components/CMS/Modal/Modal";
-import  { Notify } from '../../../Components/Toastify/Toastify'
 import Input from "../../../Components/Input/Input";
 import { emailValidators, maxValidators, minValidators } from "../../../Rules/Rules";
 import { useForm } from "../../../Hooks/useFrom";
+import Swal from "sweetalert2";
 
 export default function Users() {
   const [openModal, setOpenModal] = useState(false);
@@ -83,7 +83,11 @@ export default function Users() {
       },
     }).then((res) => {
       if (res.ok) {
-        Notify('delete');
+        Swal.fire({
+          title: "موفق",
+          text: "عملیات با موفقیت به انجام رسید.",
+          icon: "success"
+        });
         getAllUsers(); // Fetch updated users immediately
       }
     });
@@ -99,7 +103,11 @@ export default function Users() {
       },
     }).then((res) => {
       if (res.ok) {
-        Notify('ban');
+        Swal.fire({
+          title: "موفق",
+          text: "عملیات با موفقیت به انجام رسید.",
+          icon: "success"
+        });
       }
     })
   };
@@ -132,12 +140,24 @@ export default function Users() {
         body: JSON.stringify(newUserDetails),
       }).then(res => res.json()).then(result => {
         if (result.message === "this phone number banned!") {
-          Notify('banReg')
+          Swal.fire({
+            title: "ناموفق",
+            text: "این شماره بن شده است",
+            icon: "error"
+          });
         } else {
           if (result.accessToken) {
-            Notify('success')
+            Swal.fire({
+              title: "موفق",
+              text: "عملیات با موفقیت به انجام رسید.",
+              icon: "success"
+            });
           } else {
-            Notify('errorReg')
+            Swal.fire({
+              title: "ناموفق",
+              text: "اطلاعات وارد شده در سامانه موجود میباشد.لطفا دوباره تلاش کنید.",
+              icon: "error"
+            });
           }
         }
       })
@@ -164,11 +184,19 @@ export default function Users() {
       body: JSON.stringify({ id: userId, role: value.toUpperCase() })
     }).then(res => {
       if (res.ok) {
-        Notify('success')
+        Swal.fire({
+          title: "موفق",
+          text: "عملیات با موفقیت به انجام رسید.",
+          icon: "success"
+        });
         getAllUsers()
         return res.json()
       } else {
-        Notify('catError')
+        Swal.fire({
+          title: "ناموفق",
+          text: "عملیات ناموفقیت آمیز بود!",
+          icon: "error"
+        });
       }
     })
   };

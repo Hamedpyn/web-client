@@ -10,11 +10,11 @@ import { LuUsers } from "react-icons/lu";
 import { RiDiscountPercentLine } from "react-icons/ri";
 import { TbCategoryPlus } from "react-icons/tb";
 import { HiMiniArrowRightStartOnRectangle } from "react-icons/hi2";
-import { Notify } from '../../Toastify/Toastify'
 import ModalAlert from "../Modal/Modal";
 import { MdOutlineCampaign, MdOutlineVideoLibrary } from "react-icons/md";
 import { VscCommentDiscussion } from "react-icons/vsc";
 import { LiaComment } from "react-icons/lia";
+import Swal from "sweetalert2";
 
 export default function CmsSideBar({ isCmsSideBar, setIsCmsSideBar }) {
   let bodyShadow = useRef(null)
@@ -29,8 +29,11 @@ export default function CmsSideBar({ isCmsSideBar, setIsCmsSideBar }) {
   };
 
   const logOutConfirmation = () => {
-    Notify('logout')
-    setTimeout(() => {
+    Swal.fire({
+      title: "موفق",
+      text: "عملیات با موفقیت به انجام رسید.",
+      icon: "success"
+    });    setTimeout(() => {
       navigate('/')
       logout()
     }, 2500);

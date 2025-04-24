@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from "react"
 import DataTable from "../../../Components/CMS/DataTable/DataTable"
 import Pagination from "../../../Components/Pagination/Pagination"
 import ModalAlert from "../../../Components/CMS/Modal/Modal"
-import  { Notify } from "../../../Components/Toastify/Toastify"
 import Input from "../../../Components/Input/Input"
 import { maxValidators, minValidators } from "../../../Rules/Rules"
 import { MdOutlineShortText, MdTitle } from "react-icons/md"
@@ -11,6 +10,7 @@ import { useForm } from "../../../Hooks/useFrom"
 import { FaChevronDown } from "react-icons/fa"
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Swal from "sweetalert2"
 export default function Articles() {
   const [articles, setArticles] = useState([]);
   const [bodyValue, setBodyValue] = useState("");
@@ -46,7 +46,7 @@ export default function Articles() {
     { title: 'نویسنده', id: 3 },
   ]
   const getAllArticles = useCallback(() => {
-    fetch('https://web-api-silk-three.vercel.app/v1/articles',{
+    fetch('https://web-api-silk-three.vercel.app/v1/articles', {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -54,7 +54,7 @@ export default function Articles() {
   }, [])
 
   useEffect(() => {
-    fetch('https://web-api-silk-three.vercel.app/v1/category',{
+    fetch('https://web-api-silk-three.vercel.app/v1/category', {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -80,11 +80,18 @@ export default function Articles() {
     })
       .then(res => {
         if (res.ok) {
-          Notify("success")
-          getAllArticles()
+          Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+          }); getAllArticles()
           res.json()
         } else {
-          Notify("catError")
+          Swal.fire({
+            title: "ناموفق",
+            text: "عملیات ناموفقیت آمیز بود!",
+            icon: "error"
+          });
         }
       })
   };
@@ -128,11 +135,18 @@ export default function Articles() {
     })
       .then(res => {
         if (res.ok) {
-          Notify("success")
-          getAllArticles()
-          return res.json()
+          Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+          }); getAllArticles()
+          res.json()
         } else {
-          Notify("catError")
+          Swal.fire({
+            title: "ناموفق",
+            text: "عملیات ناموفقیت آمیز بود!",
+            icon: "error"
+          });
         }
       })
 

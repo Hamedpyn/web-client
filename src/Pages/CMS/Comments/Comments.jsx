@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import DataTable from "../../../Components/CMS/DataTable/DataTable";
 import Pagination from "../../../Components/Pagination/Pagination";
 import ModalAlert from "../../../Components/CMS/Modal/Modal";
-import  { Notify } from '../../../Components/Toastify/Toastify'
+import Swal from "sweetalert2";
 
 export default function Comments() {
     const commentsTitle = [
@@ -27,7 +27,7 @@ export default function Comments() {
     const [FilteredComments, setFilteredComments] = useState([])
 
     const getAllComments = useCallback(() => {
-        fetch('https://web-api-silk-three.vercel.app/v1/comments',{
+        fetch('https://web-api-silk-three.vercel.app/v1/comments', {
             credentials: 'include',
         })
             .then(res => res.json())
@@ -52,11 +52,18 @@ export default function Comments() {
         })
             .then(res => {
                 if (res.ok) {
-                    Notify("success")
-                    getAllComments()
+                    Swal.fire({
+                        title: "موفق",
+                        text: "عملیات با موفقیت به انجام رسید.",
+                        icon: "success"
+                    }); getAllComments()
                     return res.json()
                 } else {
-                    Notify("catError")
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "عملیات ناموفقیت آمیز بود!",
+                        icon: "error"
+                    });
                 }
             })
     };
@@ -74,10 +81,18 @@ export default function Comments() {
         })
             .then(res => {
                 if (res.ok) {
-                    Notify("success")
+                    Swal.fire({
+                        title: "موفق",
+                        text: "عملیات با موفقیت به انجام رسید.",
+                        icon: "success"
+                    });
                     return res.json()
                 } else {
-                    Notify("catError")
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "عملیات ناموفقیت آمیز بود!",
+                        icon: "error"
+                    });
                 }
             })
     };
@@ -99,11 +114,18 @@ export default function Comments() {
         })
             .then(res => {
                 if (res.ok) {
-                    Notify("success")
-                    getAllComments()
+                    Swal.fire({
+                        title: "موفق",
+                        text: "عملیات با موفقیت به انجام رسید.",
+                        icon: "success"
+                    }); getAllComments()
                     return res.json()
                 } else {
-                    Notify("catError")
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "عملیات ناموفقیت آمیز بود!",
+                        icon: "error"
+                    });
                 }
             })
     };
@@ -117,11 +139,18 @@ export default function Comments() {
         })
             .then(res => {
                 if (res.ok) {
-                    Notify("success")
-                    getAllComments()
+                    Swal.fire({
+                        title: "موفق",
+                        text: "عملیات با موفقیت به انجام رسید.",
+                        icon: "success"
+                    }); getAllComments()
                     return res.json()
                 } else {
-                    Notify("catError")
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "عملیات ناموفقیت آمیز بود!",
+                        icon: "error"
+                    });
                 }
             })
     };

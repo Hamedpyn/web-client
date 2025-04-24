@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import UserPanelTitle from "../../../Components/UserPanelTitle/UserPanelTitle";
 import { FaChevronDown } from "react-icons/fa";
 import { BsUpload } from "react-icons/bs";
-import  { Notify } from "../../../Components/Toastify/Toastify";
+import Swal from "sweetalert2";
 export default function AddTicket() {
     const [title, setTitle] = useState('')
     const [titleBlur, setTitleBlur] = useState(false)
@@ -48,8 +48,11 @@ export default function AddTicket() {
             body: JSON.stringify(newTicket)
         }).then(res => {
             if (res.ok) {
-                Notify("success")
-
+                Swal.fire({
+                    title: "موفق",
+                    text: "عملیات با موفقیت به انجام رسید.",
+                    icon: "success"
+                  });
                 setTitle("")
                 setTitleBlur(false)
                 setDepartmentID("")
@@ -59,11 +62,17 @@ export default function AddTicket() {
                 setSelectedDepartmentBlur(false)
                 return res.json()
             } else {
-                Notify("catError")
-            }
+                Swal.fire({
+                    title: "ناموفق",
+                    text: "عملیات ناموفقیت آمیز بود!",
+                    icon: "error"
+                  });            }
         }).catch(() => {
-            Notify("catError")
-        })
+            Swal.fire({
+                title: "ناموفق",
+                text: "عملیات ناموفقیت آمیز بود!",
+                icon: "error"
+              });        })
     };
 
     useEffect(() => {

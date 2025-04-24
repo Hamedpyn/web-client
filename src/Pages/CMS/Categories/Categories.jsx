@@ -4,9 +4,9 @@ import { useForm } from "../../../Hooks/useFrom";
 import { maxValidators, minValidators } from "../../../Rules/Rules";
 import { MdOutlineShortText, MdOutlineTitle } from "react-icons/md";
 import Input from "../../../Components/Input/Input";
-import  { Notify } from '../../../Components/Toastify/Toastify'
 import ModalAlert from "../../../Components/CMS/Modal/Modal";
 import EditModal from "../../../Components/EditModal/EditModal";
+import Swal from "sweetalert2";
 
 export default function Categories() {
   const [categories, setCategories] = useState([])
@@ -64,12 +64,18 @@ export default function Categories() {
     })
       .then(res => {
         if (res.ok) {
-          Notify('success')
-          getAllCats()
+          Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+        });          getAllCats()
           return res.json()
         } else {
-          Notify('catError')
-        }
+          Swal.fire({
+            title: "ناموفق",
+            text: "عملیات ناموفقیت آمیز بود!",
+            icon: "error"
+          });        }
       })
   };
   const removeCategory = () => {
@@ -83,12 +89,18 @@ export default function Categories() {
     })
       .then(res => {
         if (res.ok) {
-          Notify('success')
-          getAllCats()
+          Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+        });          getAllCats()
           return res.json()
         } else {
-          Notify('catError')
-        }
+          Swal.fire({
+            title: "ناموفق",
+            text: "عملیات ناموفقیت آمیز بود!",
+            icon: "error"
+          });        }
       })
   };
 
@@ -119,12 +131,18 @@ export default function Categories() {
     })
       .then(res => {
         if (res.ok) {
-          Notify('success')
-          getAllCats()
+          Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+        });          getAllCats()
           return res.json()
         } else {
-          Notify('catError')
-        }
+          Swal.fire({
+            title: "ناموفق",
+            text: "عملیات ناموفقیت آمیز بود!",
+            icon: "error"
+          });        }
       })
   };
 

@@ -1,7 +1,7 @@
 import { Modal } from "flowbite-react";
 import { MdOutlineShortText, MdOutlineTitle } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { Notify } from "../Toastify/Toastify"
+import Swal from "sweetalert2";
 
 export default function EditModal({ getAllComments, id, touched, bodyValue, setBodyValue, bodySucceed, setBodySucceed, setTouched, answer, name, setName, inputValue, tickets, setInputValue, openModal, setOpenModal, msg, onEdit }) {
     const [titleTouched, setTitleTouched] = useState(null)
@@ -39,11 +39,18 @@ export default function EditModal({ getAllComments, id, touched, bodyValue, setB
                 body: JSON.stringify({ body: bodyValue, ticketID: id })
             }).then(res => {
                 if (res.ok) {
-                    Notify("success")
-                    getAllComments()
+                    Swal.fire({
+                        title: "موفق",
+                        text: "عملیات با موفقیت به انجام رسید.",
+                        icon: "success"
+                    }); getAllComments()
                     return res.json()
                 } else {
-                    Notify("catError")
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "عملیات ناموفقیت آمیز بود!",
+                        icon: "error"
+                    });
                 }
             })
         } else {
@@ -57,11 +64,18 @@ export default function EditModal({ getAllComments, id, touched, bodyValue, setB
                 body: JSON.stringify({ body: bodyValue })
             }).then(res => {
                 if (res.ok) {
-                    Notify("success")
-                    getAllComments()
+                    Swal.fire({
+                        title: "موفق",
+                        text: "عملیات با موفقیت به انجام رسید.",
+                        icon: "success"
+                    }); getAllComments()
                     return res.json()
                 } else {
-                    Notify("catError")
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "عملیات ناموفقیت آمیز بود!",
+                        icon: "error"
+                    });
                 }
             })
         }

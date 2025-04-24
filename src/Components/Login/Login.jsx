@@ -6,8 +6,8 @@ import { GoLock, GoUnlock } from "react-icons/go";
 import { useForm } from "../../Hooks/useFrom";
 import { CiUser } from "react-icons/ci";
 import { useContext, useState } from "react";
-import  { Notify } from "../Toastify/Toastify";
 import SabzLearnContext from "../../Contexts/SabzlearnContext";
+import Swal from "sweetalert2";
 
 export default function Login({ setState }) {
 	let navigate = useNavigate()
@@ -50,18 +50,27 @@ export default function Login({ setState }) {
 
 			const result = await response.json();
 			if (result.accessToken) {
-				Notify('success');
-				setTimeout(() => {
+				Swal.fire({
+					title: "موفق",
+					text: "عملیات با موفقیت به انجام رسید.",
+					icon: "success"
+				  });				setTimeout(() => {
 					login(result.accessToken, {});
 					navigate('/')
 				}, 3000);
 			} else {
-				Notify('error');
-			}
+				Swal.fire({
+					title: "ناموفق",
+					text: "عملیات ناموفقیت آمیز بود!",
+					icon: "error"
+				  });			}
 		} catch (error) {
 			console.error('Error:', error);
-			Notify('error');
-		}
+			Swal.fire({
+				title: "ناموفق",
+				text: "عملیات ناموفقیت آمیز بود!",
+				icon: "error"
+			  });		}
 	};
 
 

@@ -9,9 +9,9 @@ import SabzLearnContext from "../../Contexts/SabzlearnContext";
 import SideBar from "../SideBar/SideBar";
 import { HiMiniArrowRightStartOnRectangle } from "react-icons/hi2";
 import PersianDate from "../PersianDate/PersianDate";
-import { Notify } from "../Toastify/Toastify";
 import ModalAlert from "../CMS/Modal/Modal";
 import { SiAwssecretsmanager } from "react-icons/si";
+import Swal from "sweetalert2";
 
 export default memo(function Header() {
     let { setIsSideBar, isLoggedIn, setIsValue, isValue, userInfos, logout, openUserMenu, setOpenUserMenu, darkMode, setDarkMode } = useContext(SabzLearnContext);
@@ -148,8 +148,11 @@ export default memo(function Header() {
     };
 
     const logOutConfirmation = () => {
-        Notify('logout')
-        setTimeout(() => {
+        Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+          });        setTimeout(() => {
             navigate('/LoginPage')
             logout()
         }, 2500);

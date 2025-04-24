@@ -1,4 +1,3 @@
-import { Notify } from '../../../Components/Toastify/Toastify'
 import DataTable from '../../../Components/CMS/DataTable/DataTable'
 import Pagination from '../../../Components/Pagination/Pagination'
 import { useEffect, useState, useCallback } from 'react'
@@ -10,6 +9,7 @@ import { VscPercentage } from "react-icons/vsc";
 import { BsArrowCounterclockwise } from "react-icons/bs";
 import { FaBarcode } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa6";
+import Swal from 'sweetalert2'
 
 export default function DisCounts() {
   const [disCounts, setDisCounts] = useState([])
@@ -59,7 +59,7 @@ export default function DisCounts() {
 
 
   useEffect(() => {
-    fetch('https://web-api-silk-three.vercel.app/v1/courses',{
+    fetch('https://web-api-silk-three.vercel.app/v1/courses', {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -102,11 +102,18 @@ export default function DisCounts() {
     })
       .then(res => {
         if (res.ok) {
-          Notify("success")
-          getAllDisCounts()
+          Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+          }); getAllDisCounts()
           return res.json()
         } else {
-          Notify("catError")
+          Swal.fire({
+            title: "ناموفق",
+            text: "عملیات ناموفقیت آمیز بود!",
+            icon: "error"
+          });
         }
       })
 
@@ -125,11 +132,18 @@ export default function DisCounts() {
     })
       .then(res => {
         if (res.ok) {
-          Notify("success")
-          getAllDisCounts()
+          Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+          }); getAllDisCounts()
           return res.json()
         } else {
-          Notify("catError")
+          Swal.fire({
+            title: "ناموفق",
+            text: "عملیات ناموفقیت آمیز بود!",
+            icon: "error"
+          });
         }
       })
   };

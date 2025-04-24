@@ -7,7 +7,6 @@ import ScrollToTop from "./Components/ScrollToTop/ScrollToTop"
 import CircleSpinner from './Components/CircleSpinner/CircleSpinner'
 import 'react-toastify/dist/ReactToastify.css';
 import 'ckeditor5/ckeditor5.css';
-import { ToastContainer } from 'react-toastify'
 
 function App() {
   const [isSideBar, setIsSideBar] = useState(false)
@@ -158,12 +157,7 @@ function App() {
         <div className="flex flex-col items-center bg-[#F3F4F6] dark:bg-[#111827]">
           {router}
         </div>
-        <ToastContainer
-          rtl
-          pauseOnHover={false}
-          pauseOnFocusLoss={false}
-          className="font !top-10"
-        />
+        
       </Suspense>
     </SabzLearnContext.Provider>
   )

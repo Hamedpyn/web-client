@@ -2,7 +2,7 @@ import { VscPercentage } from "react-icons/vsc";
 import Input from "../../../Components/Input/Input";
 import { useForm } from "../../../Hooks/useFrom";
 import { maxValidators, minValidators } from "../../../Rules/Rules";
-import { Notify } from "../../../Components/Toastify/Toastify";
+import Swal from "sweetalert2";
 
 
 export default function Campaign() {
@@ -30,10 +30,17 @@ export default function Campaign() {
         })
             .then(res => {
                 if (res.ok) {
-                    Notify('success')
-                    return res.json()
+                    Swal.fire({
+                        title: "موفق",
+                        text: "عملیات با موفقیت به انجام رسید.",
+                        icon: "success"
+                    }); return res.json()
                 } else {
-                    Notify('catError')
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "عملیات ناموفقیت آمیز بود!",
+                        icon: "error"
+                    });
                 }
             })
     };
@@ -50,10 +57,17 @@ export default function Campaign() {
         })
             .then(res => {
                 if (res.ok) {
-                    Notify('success')
-                    return res.json()
+                    Swal.fire({
+                        title: "موفق",
+                        text: "عملیات با موفقیت به انجام رسید.",
+                        icon: "success"
+                    }); return res.json()
                 } else {
-                    Notify('catError')
+                    Swal.fire({
+                        title: "ناموفق",
+                        text: "عملیات ناموفقیت آمیز بود!",
+                        icon: "error"
+                    });
                 }
             })
     };
@@ -77,7 +91,7 @@ export default function Campaign() {
                 </div>
 
             </div>
-            < />
+
         </div>
     )
 }

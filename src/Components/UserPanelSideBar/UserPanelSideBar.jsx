@@ -6,10 +6,10 @@ import { IoChevronBackSharp, IoMoonOutline, IoSunnyOutline, IoWalletOutline } fr
 import PersianDate from "../PersianDate/PersianDate";
 import { HiMiniArrowRightStartOnRectangle } from "react-icons/hi2";
 import ModalAlert from "../CMS/Modal/Modal";
-import  { Notify } from "../Toastify/Toastify";
 import { PiGraduationCap, PiSquaresFour } from "react-icons/pi";
 import { VscCommentDiscussion } from "react-icons/vsc";
 import { RiQuestionLine } from "react-icons/ri"; import { FiEdit } from "react-icons/fi";
+import Swal from "sweetalert2";
 
 export default function UserPanelSideBar({ isCmsSideBar, setIsCmsSideBar, userInfos }) {
     let bodyShadow = useRef(null)
@@ -31,8 +31,11 @@ export default function UserPanelSideBar({ isCmsSideBar, setIsCmsSideBar, userIn
         setIsCmsSideBar(false)
     }, [pathname, setIsCmsSideBar]);
     const logOutConfirmation = () => {
-        Notify('logout')
-        setTimeout(() => {
+        Swal.fire({
+            title: "موفق",
+            text: "عملیات با موفقیت به انجام رسید.",
+            icon: "success"
+          });        setTimeout(() => {
             navigate('/')
             logout()
         }, 2500);

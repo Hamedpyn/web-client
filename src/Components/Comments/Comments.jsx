@@ -1,7 +1,6 @@
 import PersianDate from '../PersianDate/PersianDate'
 import { TiInfoOutline } from 'react-icons/ti'
 import { GrUndo } from 'react-icons/gr'
-import { Notify } from '../Toastify/Toastify'
 import { BsExclamationTriangle } from 'react-icons/bs'
 import { FaUser } from 'react-icons/fa'
 import BoxesTitle from '../BoxesTitle/BoxesTitle'
@@ -16,7 +15,11 @@ export default memo(function Comments({ setIsNewComment, isNewComment, closeComm
     return (
         <BoxesTitle onComment={() => {
             if (!isLoggedIn) {
-                Notify('noComment')
+                Swal.fire({
+            title: "ناموفق",
+            text: "برای نظر دادن باید وارد سایت شوید",
+            icon: "error"
+          });
             }
             setIsNewComment(true)
         }} comment={true} bg={"bg-[#EF4444]"} title={"نظرات"} icon={<HiChatBubbleLeftRight className="hidden md:inline-block text-[#EF4444] w-10 h-10" />}>
