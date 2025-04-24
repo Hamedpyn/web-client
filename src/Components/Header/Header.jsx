@@ -555,7 +555,6 @@ export default memo(function Header() {
                     </div>
                 </div>
             </div>
-            <Tostify />
             <SideBar />
             <div ref={bodyShadow}></div>
             <ModalAlert onRemove={logOutConfirmation} openModal={openModal} setOpenModal={setOpenModal} msg={"آیا از خروج از اکانت خود مطمئن هستید؟"} />
