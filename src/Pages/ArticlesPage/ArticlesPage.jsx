@@ -18,7 +18,6 @@ export default function ArticlesPage() {
     const [isOpen, setIsOpen] = useState(false);
     const [articlesDetails, setArticlesDetails] = useState(null);
     const { blog } = useParams()
-    const [imageSrc, setImageSrc] = useState("");
 
 
     useEffect(() => {
@@ -31,9 +30,6 @@ export default function ArticlesPage() {
                     setArticlesDetails(articles);
                     setSpinner(false);
                     document.title = articles.title
-
-                    setImageSrc(`/images/${articles.cover.slice(0, -3)}jpg`)
-
                 }
             })
             .catch(error => {
@@ -43,9 +39,6 @@ export default function ArticlesPage() {
 
     }, [blog])
 
-    const handleImageError = () => {
-        setImageSrc('/images/NoImg.jpg');
-    };
     return (
         <>
             {spinner && !articlesDetails && (
@@ -85,8 +78,7 @@ export default function ArticlesPage() {
                                 </div>
                                 <div className="rounded-2xl overflow-hidden mb-6">
                                     <img className="w-full"
-                                        src={imageSrc}
-                                        onError={handleImageError}
+                                        src={articlesDetails.cover}
                                         alt={articlesDetails?.cover ? `Cover image: ${articlesDetails.cover}` : 'No image available'}
                                     />
                                 </div>
