@@ -99,6 +99,13 @@ export default function CoursesPage() {
     };
 
     const registerInCourse = () => {
+        if (!localStorageData.token) {
+            Swal.fire({
+                title: "ناموفق",
+                text: "لطفا وارد حساب خود شوید",
+                icon: "error"
+            })
+        }
         setOpenModal(true)
     };
     const registerInCourseConfirmation = () => {
@@ -342,7 +349,7 @@ export default function CoursesPage() {
                                     </div>
                                 </div>
                                 <BoxesTitle bg={"bg-amber-500"} title={"توضیحات"} icon={<IoDocumentText className="hidden md:inline-block text-amber-400 w-10 h-10" />}>
-                                    <p className="dana-regular leading-7 opacity-70">{oneCourse.description}</p>
+                                    <p className="dana-regular leading-7 opacity-70 text-gray-700 text-right">{oneCourse.description}</p>
                                     <img className="rounded-2xl"
                                         src={!oneCourse.cover.startsWith('http') ? `/images/${oneCourse.cover.slice(0, -3)}webp` : oneCourse.cover}
                                         alt={oneCourse?.cover ? `Cover image: ${oneCourse.cover}` : 'No image available'}
@@ -375,7 +382,7 @@ export default function CoursesPage() {
                                                 <div key={relatedCourses._id} className="flex items-center justify-between flex-wrap bg-[#f3f4f6] dark:bg-[#333C4C] rounded-lg py-2 pr-2 pl-4">
                                                     <div className="flex items-center gap-x-4 w-4/5">
 
-                                                        <img className="w-24 rounded-md aspect-video" src={!relatedCourses.cover.startsWith('http') ?`/images/${relatedCourses.cover.slice(0,-3)}webp` :relatedCourses.cover}
+                                                        <img className="w-24 rounded-md aspect-video" src={!relatedCourses.cover.startsWith('http') ? `/images/${relatedCourses.cover.slice(0, -3)}webp` : relatedCourses.cover}
                                                             alt={relatedCourses?.cover ? `Cover image: ${relatedCourses.cover}` : 'No image available'}
                                                         />
 

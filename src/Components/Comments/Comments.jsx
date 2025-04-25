@@ -7,6 +7,7 @@ import BoxesTitle from '../BoxesTitle/BoxesTitle'
 import { memo, useContext, useRef, useState } from 'react'
 import SabzLearnContext from "../../Contexts/SabzlearnContext"
 import { HiChatBubbleLeftRight } from 'react-icons/hi2'
+import Swal from 'sweetalert2'
 
 export default memo(function Comments({ setIsNewComment, isNewComment, closeComment, comments, sendComment }) {
     let { isLoggedIn, userInfos } = useContext(SabzLearnContext)
@@ -16,10 +17,10 @@ export default memo(function Comments({ setIsNewComment, isNewComment, closeComm
         <BoxesTitle onComment={() => {
             if (!isLoggedIn) {
                 Swal.fire({
-            title: "ناموفق",
-            text: "برای نظر دادن باید وارد سایت شوید",
-            icon: "error"
-          });
+                    title: "ناموفق",
+                    text: "برای نظر دادن باید وارد سایت شوید",
+                    icon: "error"
+                });
             }
             setIsNewComment(true)
         }} comment={true} bg={"bg-[#EF4444]"} title={"نظرات"} icon={<HiChatBubbleLeftRight className="hidden md:inline-block text-[#EF4444] w-10 h-10" />}>
@@ -90,31 +91,31 @@ flex justify-between items-center pb-3 ">
                     {/* reply */}
                     {c.answerContent && (
                         <>
-                        <div className="dark:bg-[#242A38] mb-2 bg-[#E5E7EB] p-5 rounded-xl">
-                            <div className="border-b border-b-neutral-300 dark:border-b-white/10 flex items-center pb-3 ">
-                                <div className="flex gap-3">
-                                    <div className="relative">
-                                        <div className="absolute">
-                                            <img className="w-5" src="/images/check-symbol-4794.svg" alt="" />
+                            <div className="dark:bg-[#242A38] mb-2 bg-[#E5E7EB] p-5 rounded-xl">
+                                <div className="border-b border-b-neutral-300 dark:border-b-white/10 flex items-center pb-3 ">
+                                    <div className="flex gap-3">
+                                        <div className="relative">
+                                            <div className="absolute">
+                                                <img className="w-5" src="/images/check-symbol-4794.svg" alt="" />
+                                            </div>
+                                            <img className="border rounded-full border-[#0EA5E9] p-1 w-14" src={c.answerContent.creator.profile || "/images/ba986f5ecace8be41dfdf99d3000078f.png"} alt="" />
                                         </div>
-                                        <img className="border rounded-full border-[#0EA5E9] p-1 w-14" src={c.answerContent.creator.profile || "/images/ba986f5ecace8be41dfdf99d3000078f.png"} alt="" />
-                                    </div>
-                                    <div className="flex flex-col justify-center gap-2">
-                                        <div className="flex items-center gap-1 ">
-                                            <h4 className="dana-regular h-6 dark:text-white text-gray-900">{c.answerContent.creator.name}</h4>
-                                            <span className="dana-demi dark:text-white text-gray-900">| {c.answerContent.creator.role == "ADMIN" && "ادمین"}</span>
+                                        <div className="flex flex-col justify-center gap-2">
+                                            <div className="flex items-center gap-1 ">
+                                                <h4 className="dana-regular h-6 dark:text-white text-gray-900">{c.answerContent.creator.name}</h4>
+                                                <span className="dana-demi dark:text-white text-gray-900">| {c.answerContent.creator.role == "ADMIN" && "ادمین"}</span>
+                                            </div>
+                                            <span className="dana-regular dark:text-white text-gray-900 text-sm opacity-70">
+                                                <PersianDate isoDate={c.answerContent.createdAt} />
+                                            </span>
                                         </div>
-                                        <span className="dana-regular dark:text-white text-gray-900 text-sm opacity-70">
-                                            <PersianDate isoDate={c.answerContent.createdAt} />
-                                        </span>
                                     </div>
                                 </div>
+                                <div className="py-4">
+                                    <p className="dana-regular dark:text-white text-gray-900">{c.answerContent.body}</p>
+                                </div>
                             </div>
-                            <div className="py-4">
-                                <p className="dana-regular dark:text-white text-gray-900">{c.answerContent.body}</p>
-                            </div>
-                        </div>
-                        
+
                         </>
                     )}
                 </div>
