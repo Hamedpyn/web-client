@@ -86,7 +86,7 @@ export default function UserIndex() {
                         {links.svg}
                         <div className="flex flex-col gap-3">
                             <span className="text-xs dana-medium sm:text-sm text-gray-700 dark:text-gray-400">{links.label}</span>
-                            <span className="text-sm sm:text-base dana-extra text-white dark:text-gray-400">{links.length}</span>
+                            <span className="text-sm sm:text-base dana-extra text-black dark:text-white">{links.length}</span>
                         </div>
                     </div>
                 ))}
