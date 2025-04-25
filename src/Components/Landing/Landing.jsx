@@ -48,7 +48,7 @@ export default function Landing() {
                     </p>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-row gap-6">
+                    <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                         <a
                             href="#roadmap"
                             className="bg-[rgb(14,165,233)] dana-regular transition-all hover:bg-[#0284C7] py-3 px-5 rounded-full text-lg"
