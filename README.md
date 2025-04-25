@@ -3,13 +3,12 @@
 A Single Page Application (SPA) built as a full-stack educational platform with real backend integration.
 
 ## Key Features
-✔ **User Authentication** (Signup/Login)
-
-✔ **Course Purchasing** (with/without discount codes)
-✔ **Pagination & Sorting for courses**
-✔ **Commenting System**
-✔ **User Dashboard**
-✔ **Admin Panel** (CRUD for courses, articles & users)
+- ✔ **User Authentication** (Signup/Login)
+- ✔ **Course Purchasing** (with/without discount codes)
+- ✔ **Pagination & Sorting for courses**
+- ✔ **Commenting System**
+- ✔ **User Dashboard**
+- ✔ **Admin Panel** (CRUD for courses, articles & users)
 
 **Tech Stack**
 🔹 Frontend: React.js (SPA)
