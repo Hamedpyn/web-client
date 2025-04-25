@@ -99,7 +99,7 @@ export default function CoursesPage() {
     };
 
     const registerInCourse = () => {
-        if (!localStorageData.token) {
+        if (!localStorageData) {
             Swal.fire({
                 title: "ناموفق",
                 text: "لطفا وارد حساب خود شوید",
