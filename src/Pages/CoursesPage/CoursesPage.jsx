@@ -105,6 +105,7 @@ export default function CoursesPage() {
                 text: "لطفا وارد حساب خود شوید",
                 icon: "error"
             })
+            return false;
         }
         setOpenModal(true)
     };
