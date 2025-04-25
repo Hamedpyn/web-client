@@ -78,7 +78,7 @@ export default function DataTable({ newUsers, disCounts, tickets, getAllComments
                                     <Table.Cell className="!rounded-none dana-medium">{item.price ? item.price.toLocaleString() : "رایگان"}</Table.Cell>
                                     <Table.Cell className="!rounded-none dana-medium">{item.name}</Table.Cell>
                                     <Table.Cell className="w-[150px]">
-                                        <ImageComponent item={item.cover} />
+                                        <ImageComponent item={item} />
                                     </Table.Cell>
 
                                 </Table.Row>
