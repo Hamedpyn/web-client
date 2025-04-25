@@ -84,7 +84,7 @@ export default function Campaign() {
                             <VscPercentage className="text-2xl text-slate-400" />
                         </Input>
 
-                        <button onClick={setCampaign} disabled={!formState.formIsValid} type="submit" className="dana-demi disabled:opacity-60 bg-[#22c55e] h-[52px] rounded-full w-full">ثبت</button>
+                        <button onClick={setCampaign} disabled={!formState.formIsValid} type="submit" className="dana-demi mb-1 md:mb-0 disabled:opacity-60 bg-[#22c55e] h-[52px] rounded-full w-full">ثبت</button>
                         <button onClick={removeCampaign} type="submit" className="dana-demi bg-[#ef4444] h-[52px] rounded-full w-full">حذف تخفیف همگانی</button>
 
                     </form>
