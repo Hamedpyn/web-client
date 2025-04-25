@@ -294,7 +294,7 @@ export default function CoursesPage() {
 
                             </div>
                         </div>
-                        <div className="grid grid-cols-12 lg:mt-[70px] gap-8 mt-5">
+                        <div className="grid grid-cols-12 lg:mt-[70px] gap-0 sm:gap-8 mt-5 text-center">
                             <div className="col-span-12 lg:col-span-8">
                                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
 

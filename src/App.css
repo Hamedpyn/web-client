@@ -85,13 +85,15 @@ body {
 
 
 
-@media only screen and (min-width:300px) {
+
+@media only screen and (min-width:200px) {
 
   .slide,
   .box {
-    width: 80% !important;
+    width: 90% !important;
   }
 }
+
 @media only screen and (min-width:500px) {
 
   .slide,
@@ -204,7 +206,7 @@ body {
   display: flex;
   height: 3.25rem;
   align-items: center;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   border-radius: .75rem;
   --tw-bg-opacity: 1;
@@ -312,15 +314,17 @@ input[type="number"] {
   font-family: dana-regular;
 }
 
-.article h2 ,.ck h2 {
+.article h2,
+.ck h2 {
   font-size: 30px !important;
 }
 
-.article h3 , .ck h3 {
+.article h3,
+.ck h3 {
   font-size: 20px !important;
 }
 
-.article h4 , .ck h4 {
+.article h4,
+.ck h4 {
   font-size: 18px !important;
 }
-
