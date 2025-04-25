@@ -96,6 +96,7 @@ function App() {
 
   // Initialize token and user state on app load
   useEffect(() => {
+    alert(' نام کاربری ادمین : amin_saeedi \n رمز عبور : 12345678')
     const localStorageData = JSON.parse(localStorage.getItem('user'));
     if (localStorageData?.token) {
       setToken(localStorageData.token); // This triggers the token-dependent useEffect
@@ -157,7 +158,7 @@ function App() {
         <div className="flex flex-col items-center bg-[#F3F4F6] dark:bg-[#111827]">
           {router}
         </div>
-        
+
       </Suspense>
     </SabzLearnContext.Provider>
   )
